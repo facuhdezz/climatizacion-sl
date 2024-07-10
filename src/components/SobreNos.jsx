@@ -1,6 +1,6 @@
 const SobreNos = () => {
     return (
-        <section className="flex flex-col gap-3 p-3 mt-4">
+        <section className="flex flex-col gap-3 p-3 my-4">
             <h1 className="text-3xl ">El confort ideal.</h1>
             <div className="flex gap-2">
                 <h1 className="text-lg font-semibold text-blue-800">Descubra el sistema de calefacción más conveniente para su hogar, casa o apartamento.</h1>

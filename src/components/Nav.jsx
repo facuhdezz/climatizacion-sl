@@ -66,7 +66,7 @@ const Nav = () => {
                 </div>
                 <img src={Cart} />
             </article>
-            {displayed && <DropDown />}
+            {flag && displayed && <DropDown />}
         </nav>
     );
 }
