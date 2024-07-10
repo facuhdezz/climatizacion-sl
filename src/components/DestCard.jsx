@@ -1,6 +1,6 @@
 const DestCard = (item) => {
     return (
-        <article className="flex flex-col bg-gray-50 w-36 border shrink-0 p-2 gap-2 justify-between rounded">
+        <article className="flex flex-col bg-gray-50 w-36 border shrink-0 p-2 gap-2 justify-between rounded border-t-4 border-t-transparent hover:border-t-blue-600">
             <div className="flex flex-col items-center gap-2">
                 <div className="w-[80%]">
                     <img className="w-auto h-auto" src={item.url} />

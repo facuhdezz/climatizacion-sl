@@ -3,8 +3,8 @@ import Aire from '../assets/imagenes/aire.jpg';
 
 const CatBanner = () => {
     return (
-        <section className="mt-6">
-            <h1 className="text-xl font-semibold text-blue-900 m-2">¿Qué estás buscando?</h1>
+        <section className="mt-6 lg:mt-10">
+            <h1 className="text-xl font-semibold text-blue-900 m-2 lg:text-3xl">¿Qué estás buscando?</h1>
             <div className="flex flex-col lg:flex-row lg:gap-2">
                 <article className="w-full h-44 bg-slate-400 relative overflow-hidden">
                     <img className="object-cover" src={Calefactor} />

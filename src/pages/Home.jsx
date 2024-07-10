@@ -9,7 +9,7 @@ const Home = () => {
             <Destacados />
             <CatBanner />
             <article className="sticky bottom-3">
-                <a href="https://wa.me/59899707135" target="_blank" rel="noopener noreferrer" className="flex justify-center gap-2 p-2 my-3 items-center bg-green-800 rounded-xl border-2 hover:cursor-pointer">
+                <a href="https://wa.me/59899707135" target="_blank" rel="noopener noreferrer" className="flex justify-center gap-2 p-2 my-3 items-center bg-green-800 rounded-xl border-2 hover:cursor-pointer hover:bg-green-700 duration-200">
                     <img src={Wpp} className="w-8"/>
                     <h1 className="text-white font-bold">Escribinos</h1>
                 </a>

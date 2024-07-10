@@ -10,7 +10,10 @@ const Aside = () => {
                 <h3 className="bg-gray-200 rounded-lg px-2">Otros productos</h3>
             </article>
             <h1 className="bg-gray-900 text-white font-semibold rounded-lg py-1 px-2 text-lg 2xl:text-xl">Sobre nosotros</h1>
-            <img src={Map} />
+            <article className="flex flex-col gap-1">
+                <h1 className="font-semibold rounded-lg py-1 px-2 text-lg 2xl:text-xl">¿Dónde encontrarnos?</h1>
+                <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank" className="rounded-xl hover:cursor-pointer overflow-hidden"><img src={Map} className="hover:scale-110 duration-200"/></a>
+            </article>
         </aside>
     )
 }
