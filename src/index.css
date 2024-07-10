@@ -13,3 +13,9 @@ h1, h2, h3, h4, p {
 body {
   background-color: rgb(235, 233, 241);
 }
+
+.wppbtn {
+    position: sticky;
+    bottom: 20px;
+    right: 20px;
+}

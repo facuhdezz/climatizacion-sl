@@ -26,7 +26,7 @@ const Nav = () => {
     }, []);
 
     useEffect(() => {
-        if(display <= 600) {
+        if(display <= 1024) {
             setFlag(true)
         } else {
             setFlag(false)
@@ -49,22 +49,28 @@ const Nav = () => {
     }
 
     return (
-        <nav className="w-full sticky top-0 navbar z-10">
-            <article className="nav-logo bg-gray-950 flex justify-around items-center pt-2">
-                <img className='h-[60px]' src={Logo} />
+        <nav className="w-full sticky top-0 navbar z-10 bg-gray-950 col-span-5 border-b">
+            {flag && <article className="nav-logo flex justify-around items-center pt-2">
+                <img className='h-[50px]' src={Logo} />
                 <div className='flex items-center gap-2'>
                     <img className='h-[24px]' src={Wpp} />
                     <img className='h-[24px]' src={Ig} />
                     <img className='h-[24px]' src={Fb} />
                 </div>
-            </article>
-            <article className="nav-nav bg-gray-950 flex justify-around items-center p-3">
+            </article>}
+            <article className="nav-nav flex justify-around items-center p-3 mx-auto sm:justify-between sm:w-[70%] max-sm:w-full sm:gap-6">
                 {flag && <img src={Menu} onClick={toggleDropDown}/>}
-                <div className='flex gap-1 items-center bg-gray-400 w-[70%] h-7 rounded-sm p-2'>
+                {!flag && <img className='h-[60px]' src={Logo} />}
+                <div className='flex gap-1 items-center bg-gray-400 max-sm:w-[70%] sm:w-[70%] lg:w-[70%] 2xl:w-[50%] h-7 rounded-sm p-2'>
                     <img src={Search} />
-                    <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200"/>
+                    <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full"/>
                 </div>
                 <img src={Cart} />
+                {!flag && <div className='flex items-center gap-2'>
+                    <img className='h-[24px]' src={Wpp} />
+                    <img className='h-[24px]' src={Ig} />
+                    <img className='h-[24px]' src={Fb} />
+                </div>}
             </article>
             {flag && displayed && <DropDown />}
         </nav>
