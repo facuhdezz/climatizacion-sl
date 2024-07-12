@@ -62,7 +62,7 @@ const Nav = () => {
             <article className="nav-nav flex justify-around items-center p-3 mx-auto sm:justify-between sm:w-[70%] max-sm:w-full sm:gap-6">
                 {flag && <img src={Menu} onClick={toggleDropDown}/>}
                 {!flag && <Link to={"/"}><img className='h-[50px]' src={Logo} /></Link>}
-                <div className='flex gap-1 items-center bg-gray-400 max-sm:w-[70%] sm:w-[70%] lg:w-[70%] 2xl:w-[50%] h-7 rounded-sm p-2'>
+                <div className='flex gap-1 items-center bg-gray-400 max-sm:w-[70%] sm:w-[70%] lg:w-[40%] 2xl:w-[50%] h-7 rounded-sm p-2'>
                     <img src={Search} />
                     <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full"/>
                 </div>
