@@ -1,6 +1,6 @@
 const ProductDetailComp = ({product}) => {
     return (
-        <>
+        <article className="flex max-sm:flex-col gap-2 md:gap-4">
             <article className="flex justify-center mx-auto w-full sm:flex-row-reverse gap-1 divide-x-2 basis-1/2">
                 <div className="contenedor-1 basis-3/4 overflow-hidden border border-gray-300 rounded-md">
                     <img src={product.url} className="hover:scale-105 duration-200 hover:cursor-pointer mx-auto"/>
@@ -23,7 +23,7 @@ const ProductDetailComp = ({product}) => {
                 <h4 className="text-lg sm:text-2xl">{product.moneda} <span className="font-bold">{product.precio}</span></h4>
                 <p className="text-sm sm:text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos aut consectetur, officiis mollitia labore laudantium repudiandae rerum sit distinctio illo dignissimos fugiat. Sed, dolorem doloremque excepturi ullam deserunt quam?</p>
             </article>
-        </>
+        </article>
     )
 }
 

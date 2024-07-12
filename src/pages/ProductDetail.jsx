@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300">
-            <section className="flex max-sm:flex-col w-full 2xl:w-[90%] m-auto px-3 gap-2 sm:gap-4 py-3 xl:py-8 mb-4">
+            <section className="flex flex-col w-full 2xl:w-[90%] m-auto px-3 gap-6 py-3 xl:py-8 mb-4">
                 {productUnique && <ProductDetailComp  product={productUnique} />}
                 <ProductDetailForm />    
             </section>            
