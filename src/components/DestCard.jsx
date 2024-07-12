@@ -5,7 +5,7 @@ const DestCard = (item) => {
         <article className="flex flex-col bg-gray-50 w-36 border shrink-0 p-2 gap-2 justify-between rounded border-t-4 border-t-transparent hover:border-t-blue-600">
             <div className="flex flex-col items-center gap-2">
                 <div className="w-[80%]">
-                    <Link to={"/product/" + item.id}><img className="w-auto h-auto" src={item.url} /></Link>
+                    <Link to={"/product/" + item.id}><img className="w-auto h-auto" src={item.url} alt={item.descripcion}/></Link>
                 </div>
                 <div className="flex flex-col gap-1">
                     <h3 className="text-xs text-blue-800">{item.nombre}</h3>

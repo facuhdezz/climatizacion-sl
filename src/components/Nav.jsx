@@ -52,25 +52,25 @@ const Nav = () => {
     return (
         <nav className="w-full sticky top-0 navbar z-10 bg-gray-950 col-span-5 border-b">
             {flag && <article className="nav-logo flex justify-around items-center pt-2">
-                <Link to={"/"}><img className='h-[50px]' src={Logo} /></Link>
+                <Link to={"/"}><img className='h-[50px]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>
                 <div className='flex items-center gap-2'>
-                    <img className='h-[24px]' src={Wpp} />
-                    <img className='h-[24px]' src={Ig} />
-                    <img className='h-[24px]' src={Fb} />
+                    <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' />
+                    <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' />
+                    <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' />
                 </div>
             </article>}
             <article className="nav-nav flex justify-around items-center p-3 mx-auto sm:justify-between sm:w-[70%] max-sm:w-full sm:gap-6">
-                {flag && <img src={Menu} onClick={toggleDropDown}/>}
-                {!flag && <Link to={"/"}><img className='h-[50px]' src={Logo} /></Link>}
+                {flag && <img src={Menu} alt='Menú' onClick={toggleDropDown}/>}
+                {!flag && <Link to={"/"}><img className='h-[50px]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>}
                 <div className='flex gap-1 items-center bg-gray-400 max-sm:w-[70%] sm:w-[70%] lg:w-[40%] 2xl:w-[50%] h-7 rounded-sm p-2'>
-                    <img src={Search} />
+                    <img src={Search} alt='Buscar: ícono de lupa' />
                     <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full"/>
                 </div>
-                <img src={Cart} />
+                <img src={Cart} alt='Carrito de compras' />
                 {!flag && <div className='flex items-center gap-2'>
-                    <img className='h-[24px]' src={Wpp} />
-                    <img className='h-[24px]' src={Ig} />
-                    <img className='h-[24px]' src={Fb} />
+                    <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' />
+                    <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' />
+                    <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' />
                 </div>}
             </article>
             {flag && displayed && <DropDown />}
