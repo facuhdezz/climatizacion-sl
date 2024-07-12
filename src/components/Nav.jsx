@@ -6,6 +6,7 @@ import Ig from '../assets/iconos/instagram.svg';
 import Fb from '../assets/iconos/facebook.svg';
 import Logo from '../assets/logos/logonav.png';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
 
@@ -51,7 +52,7 @@ const Nav = () => {
     return (
         <nav className="w-full sticky top-0 navbar z-10 bg-gray-950 col-span-5 border-b">
             {flag && <article className="nav-logo flex justify-around items-center pt-2">
-                <img className='h-[50px]' src={Logo} />
+                <Link to={"/"}><img className='h-[50px]' src={Logo} /></Link>
                 <div className='flex items-center gap-2'>
                     <img className='h-[24px]' src={Wpp} />
                     <img className='h-[24px]' src={Ig} />
@@ -60,7 +61,7 @@ const Nav = () => {
             </article>}
             <article className="nav-nav flex justify-around items-center p-3 mx-auto sm:justify-between sm:w-[70%] max-sm:w-full sm:gap-6">
                 {flag && <img src={Menu} onClick={toggleDropDown}/>}
-                {!flag && <img className='h-[60px]' src={Logo} />}
+                {!flag && <Link to={"/"}><img className='h-[50px]' src={Logo} /></Link>}
                 <div className='flex gap-1 items-center bg-gray-400 max-sm:w-[70%] sm:w-[70%] lg:w-[70%] 2xl:w-[50%] h-7 rounded-sm p-2'>
                     <img src={Search} />
                     <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full"/>
