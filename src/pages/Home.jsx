@@ -2,8 +2,17 @@ import CatBanner from "../components/CatBanner";
 import Destacados from "../components/Destacados";
 import SobreNos from "../components/SobreNos";
 import Wpp from "../assets/iconos/wpp.png"
+import useScrollToTop from "../functions/useScrollToTop";
+import { useEffect } from "react";
 
 const Home = () => {
+
+    const scrollToTop = useScrollToTop();
+
+    useEffect(() => {
+        scrollToTop();
+    }, [])
+
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3">
             <Destacados />

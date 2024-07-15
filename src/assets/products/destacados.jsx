@@ -5,7 +5,8 @@ const destacados = [
         descripcion: "Calefactor a pellet Eco Start 7 7kW",
         precio: 500,
         moneda: "USD",
-        id: "1"
+        id: "1",
+        categoria: "calefactores"
     },
     {
         url: "https://www.vivionhaus.com/uploads/cp_f30618b999152d8cdba1a63442112193.png",
@@ -13,7 +14,8 @@ const destacados = [
         descripcion: "Calefactor a pellet Eco Start 10 10kW",
         precio: 700,
         moneda: "USD",
-        id: "2"
+        id: "2",
+        categoria: "calefactores"
     },
     {
         url: "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/sodimacUY/3239276/w=1036,h=832,f=webp,fit=contain,q=85",
@@ -21,7 +23,8 @@ const destacados = [
         descripcion: "Aire acondicionado 9000 BTU inverter split",
         precio: 430,
         moneda: "USD",
-        id: "3"
+        id: "3",
+        categoria: "aires"
     },
     {
         url: "https://www.vivionhaus.com/uploads/cp_6461ada0dc73f523095837f2dffb9637.png",
@@ -29,7 +32,8 @@ const destacados = [
         descripcion: "Calefactor a pellet Eco Start 12 12kW",
         precio: 800,
         moneda: "USD",
-        id: "4"
+        id: "4",
+        categoria: "calefactores"
     },
     {
         url: "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/sodimacUY/3229831/w=1036,h=832,f=webp,fit=contain,q=85",
@@ -37,7 +41,8 @@ const destacados = [
         descripcion: "Aire acondicionado 12000 BTU on-off split frio calor GADT12",
         precio: 350,
         moneda: "USD",
-        id: "5"
+        id: "5",
+        categoria: "aires"
     },
     {
         url: "https://www.vivionhaus.com/uploads/cp_5458c9bcffbc1997fe1ba1ca2b0727a3.png",
@@ -45,7 +50,8 @@ const destacados = [
         descripcion: "Calefactor a pellet Donna Plus 12kW",
         precio: 1200,
         moneda: "USD",
-        id: "6"
+        id: "6",
+        categoria: "calefactores"
     },
     {
         url: "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/sodimacUY/324606X/w=1036,h=832,f=webp,fit=contain,q=85",
@@ -53,7 +59,8 @@ const destacados = [
         descripcion: "Aire acondicionado 12000 BTU inverter split frío calor",
         precio: 520,
         moneda: "USD",
-        id: "7"
+        id: "7",
+        categoria: "aires"
     },
     {
         url: "https://www.vivionhaus.com/uploads/producto-nina.jpg",
@@ -61,7 +68,8 @@ const destacados = [
         descripcion: "Calefactor a pellet Nina 8kW",
         precio: 1000,
         moneda: "USD",
-        id: "8"
+        id: "8",
+        categoria: "calefactores"
     }
 ]
 
