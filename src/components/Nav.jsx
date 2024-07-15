@@ -41,10 +41,11 @@ const Nav = () => {
     const DropDown = () => {
         return (
             <article className="bg-gray-950 flex flex-col gap-2 justify-around items-center p-3 text-white">
-                <h1>Calefactores</h1>
-                <h1>Aires acondicionados</h1>
-                <h1>Otros productos</h1>
-                <h1>Sobre nosotros</h1>
+                <Link onClick={toggleDropDown} to={"/"}><h1>Inicio</h1></Link>
+                <Link onClick={toggleDropDown} to={"calefactores"}><h1>Calefactores</h1></Link>
+                <Link onClick={toggleDropDown} to={"aires"}><h1>Aires acondicionados</h1></Link>
+                <Link onClick={toggleDropDown} to={""}><h1>Otros productos</h1></Link>
+                <Link onClick={toggleDropDown} to={""}><h1>Mantenimiento</h1></Link>
             </article>
         )
     }
