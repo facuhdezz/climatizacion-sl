@@ -8,11 +8,15 @@ import { useRef } from 'react';
 const Footer = () => {
     const form = useRef();
 
+    const serviceId = process.env.REACT_APP_SERVICE_ID;
+    const templateId = process.env.REACT_APP_TEMPLATE_ID;
+    const publicId = process.env.REACT_APP_PUBLIC;
+
     const sendEmail = (e) => {
         e.preventDefault();
         emailjs
-        .sendForm(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, form.current, {
-            publicKey: `${process.env.REACT_APP_PUBLIC}`,
+        .sendForm(serviceId, templateId, form.current, {
+            publicKey: publicId,
         })
             .then(
                 () => {
