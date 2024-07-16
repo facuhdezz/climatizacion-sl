@@ -15,7 +15,17 @@ const ProductCat = () => {
 
     const { cat } = useParams()
 
-    const title = cat.charAt(0).toUpperCase() + cat.slice(1);
+    const titleIf = () => {
+        if (cat == "todos") {
+            return "Todos los productos";
+        } else if (cat == "aires") {
+            return "Aires Acondicionados";
+        } else if (cat == "calefactores") {
+            return "Calefactores";
+        } 
+    }
+
+    const title = titleIf();
 
     const filteredProducts = () => {
         if (cat == "todos"){

@@ -4,19 +4,21 @@ import Map from '../assets/imagenes/mapa-1.webp';
 const Aside = () => {
     return (
         <aside className="col-span-1 max-lg:hidden p-4 flex flex-col gap-1">
-            <article className="text-md 2xl:text-lg flex flex-col gap-1">
-                <h1 className="bg-gray-300 text-black font-semibold rounded-md py-1 px-2 text-lg 2xl:text-xl">Productos</h1>
-                <Link to={"/calefactores"}><h3 className="bg-gray-200 hover:bg-gray-300 duration-200 ml-2 rounded-md px-2">Calefactores</h3></Link>
-                <Link to={"/aires"}><h3 className="bg-gray-200 hover:bg-gray-300 duration-200 ml-2 rounded-md px-2">Aires acondicionados</h3></Link>
-                <Link to={"/todos"}><h3 className="bg-gray-200 hover:bg-gray-300 duration-200 ml-2 rounded-md px-2">Todos los productos</h3></Link>
-                <h3 className="bg-gray-200 hover:bg-gray-300 duration-200 ml-2 rounded-md px-2">Otros productos</h3>
+            <article className="text-base 2xl:text-lg flex flex-col gap-1 divide-y divide-gray-400">
+                <h1 className=" text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Productos</h1>
+                <div className='flex flex-col divide-y divide-gray-300 py-2'>
+                    <Link to={"/calefactores"} className="hover:bg-gray-300 ml-3"><h3 className="text-sm 2xl:text-base duration-200 px-2 py-1">Calefactores</h3></Link>
+                    <Link to={"/aires"} className="hover:bg-gray-300 ml-3"><h3 className="text-sm 2xl:text-base duration-200 px-2 py-1">Aires acondicionados</h3></Link>
+                    <Link to={"/todos"} className="hover:bg-gray-300 ml-3"><h3 className="text-sm 2xl:text-base duration-200 px-2 py-1">Todos los productos</h3></Link>
+                    <Link className="hover:bg-gray-300 ml-3"><h3 className="text-sm 2xl:text-base duration-200 px-2 py-1">Otros productos</h3></Link>
+                </div>
+                <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Mantenimiento</h1>
+                <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Otros servicios</h1>
+                <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Sobre nosotros</h1>
             </article>
-            <h1 className="bg-gray-300 text-black font-semibold rounded-md py-1 px-2 text-lg 2xl:text-xl">Mantenimiento</h1>
-            <h1 className="bg-gray-300 text-black font-semibold rounded-md py-1 px-2 text-lg 2xl:text-xl">Otros servicios</h1>
-            <h1 className="bg-gray-300 text-black font-semibold rounded-md py-1 px-2 text-lg 2xl:text-xl">Sobre nosotros</h1>
             <article className="flex flex-col gap-1 mt-4">
-                <h1 className="font-semibold rounded-md py-1 px-2 text-lg 2xl:text-xl">¿Dónde encontrarnos?</h1>
-                <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank" className="rounded-xl hover:cursor-pointer overflow-hidden"><img src={Map} alt='Mapa señalando la dirección del local: Tajes esquina Nardone, Santa Lucía, Canelones' className="hover:scale-110 duration-200"/></a>
+                <h1 className="font-semibold py-1 px-2 text-lg 2xl:text-xl">¿Dónde encontrarnos?</h1>
+                <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank" className="rounded-xl hover:cursor-pointer overflow-hidden"><img src={Map} alt='Mapa señalando la dirección del local: Tajes esquina Nardone, Santa Lucía, Canelones' className="hover:scale-110 duration-200" /></a>
             </article>
         </aside>
     )

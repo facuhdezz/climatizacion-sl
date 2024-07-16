@@ -2,26 +2,48 @@ import Logo from '../assets/logos/logofooter2.png';
 import Wpp from '../assets/iconos/whatsapp.svg';
 import Ig from '../assets/iconos/instagram.svg';
 import Fb from '../assets/iconos/facebook.svg';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const Footer = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs
+        .sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, {
+            publicKey: process.env.PUBLIC,
+        })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                    alert("Mensaje enviado correctamente")
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                    alert("Error! Vuelva a intentarlo más tarde")
+                },
+            );
+    }
+
     return (
         <footer className="bg-gray-950 text-white p-4 items-center gap-6 col-span-5 pb-10">
             <div className="w-full flex md:flex-row flex-col mx-auto md:w-[70%] gap-6 md:gap-20">
-                <form className="flex flex-col gap-4 items-center mt-4 w-full">
+                <form ref={form} className="flex flex-col gap-4 items-center mt-4 w-full" onSubmit={sendEmail}>
                     <h1 className="text-xl font-semibold">Realiza una consulta</h1>
                     <div className="w-full">
-                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="text" name="nombre" placeholder="Nombre *" required></input>
+                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="text" name="from_name" placeholder="Nombre *" required></input>
                     </div>
                     <div className="w-full">
-                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="email" name="email" placeholder="E-mail *" required></input>
+                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="email" name="email_id" placeholder="E-mail *" required></input>
                     </div>
                     <div className="w-full">
-                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="tel" name="telefono" placeholder="Teléfono" required></input>
+                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="tel" name="phone_id" placeholder="Teléfono" required></input>
                     </div>
                     <div className="w-full">
-                        <textarea className="bg-transparent w-full h-16 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" name="mensaje" placeholder="Mensaje *" required></textarea>
+                        <textarea className="bg-transparent w-full h-16 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" name="message" placeholder="Mensaje *" required></textarea>
                     </div>
-                    <button className="border-b border-gray-400 rounded px-4 hover:bg-gray-900 duration-200">Enviar</button>
+                    <button type='submit' className="border-b border-gray-400 rounded px-4 hover:bg-gray-900 duration-200">Enviar</button>
                 </form>
                 <div className='flex flex-col justify-around items-center gap-6'>
                     <img className="md:w-[500px]" src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' />
