@@ -11,6 +11,9 @@ const ProductDetailForm = ({ producto }) => {
 
     const sendEmail = (e) => {
         e.preventDefault();
+
+        console.log(serviceId, templateProductId, publicId);
+        
         emailjs
             .sendForm(serviceId, templateProductId, form.current, {
                 publicKey: publicId,
