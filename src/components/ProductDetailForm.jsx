@@ -5,14 +5,9 @@ const ProductDetailForm = ({ producto }) => {
 
     const form = useRef()
 
-    const serviceId = process.env.REACT_APP_SERVICE_ID || "";
-    const templateProductId = process.env.REACT_APP_TEMPLATE_ID || "";
-    const publicId = process.env.REACT_APP_PUBLIC || "";
-
     const sendEmail = (e) => {
-        e.preventDefault();
 
-        console.log(serviceId, templateProductId, publicId);
+        e.preventDefault();
         
         emailjs
             .sendForm(serviceId, templateProductId, form.current, {
