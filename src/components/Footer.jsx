@@ -8,9 +8,9 @@ import { useRef } from 'react';
 const Footer = () => {
     const form = useRef();
 
-    const serviceId = process.env.VITE_APP_SERVICE_ID || "";
-    const templateId = process.env.VITE_APP_TEMPLATE_ID || "";
-    const publicId = process.env.VITE_APP_PUBLIC || "";
+    const serviceId = import.meta.env.VITE_APP_SERVICE_ID || "";
+    const templateId = import.meta.env.VITE_APP_TEMPLATE_ID || "";
+    const publicId = import.meta.env.VITE_APP_PUBLIC || "";
 
     const sendEmail = (e) => {
         e.preventDefault();
