@@ -5,6 +5,12 @@ const ProductDetailForm = ({ producto }) => {
 
     const form = useRef()
 
+    const serviceId = process.env.VITE_APP_SERVICE_ID || "";
+    const templateProductId = process.env.VITE_APP_TEMPLATE_ID_PRODUCT || "";
+    const publicId = process.env.VITE_APP_PUBLIC || "";
+
+    console.log(serviceId, templateProductId, publicId);
+
     const sendEmail = (e) => {
 
         e.preventDefault();
