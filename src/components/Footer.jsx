@@ -15,9 +15,9 @@ const Footer = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         emailjs
-        .sendForm(serviceId, templateId, form.current, {
-            publicKey: publicId,
-        })
+            .sendForm(serviceId, templateId, form.current, {
+                publicKey: publicId,
+            })
             .then(
                 () => {
                     console.log('SUCCESS!');
@@ -32,8 +32,8 @@ const Footer = () => {
 
     return (
         <footer className="bg-gray-950 text-white p-4 items-center gap-6 col-span-5 pb-10">
-            <div className="w-full flex md:flex-row flex-col mx-auto md:w-[70%] gap-6 md:gap-20">
-                <form ref={form} className="flex flex-col gap-4 items-center mt-4 w-full" onSubmit={sendEmail}>
+            <div className="w-full flex md:flex-row flex-col mx-auto md:w-[70%] xl:w-[50%] gap-6 md:gap-20">
+                <form ref={form} className="flex flex-col gap-4 items-center mt-4 w-full max-md:w-[80%] mx-auto" onSubmit={sendEmail}>
                     <h1 className="text-xl font-semibold">Realiza una consulta</h1>
                     <div className="w-full">
                         <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="text" name="from_name" placeholder="Nombre *" required></input>
@@ -42,7 +42,7 @@ const Footer = () => {
                         <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="email" name="email_id" placeholder="E-mail *" required></input>
                     </div>
                     <div className="w-full">
-                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="tel" name="phone_id" placeholder="Teléfono" required></input>
+                        <input className="bg-transparent w-full h-8 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" type="tel" name="phone_id" placeholder="Teléfono"></input>
                     </div>
                     <div className="w-full">
                         <textarea className="bg-transparent w-full h-16 p-2 border-b border-gray-700 rounded outline-none focus:bg-white/5" name="message" placeholder="Mensaje *" required></textarea>
@@ -53,13 +53,17 @@ const Footer = () => {
                     <img className="md:w-[500px]" src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' />
                     <div className="flex flex-col items-center text-center gap-2">
                         <h1 className="text-2xl font-semibold">Contacto</h1>
-                        <a href="https://wa.me/59899707135" target="_blank" rel="noopener noreferrer"><p className="hover:text-gray-400">Teléfono: <span className="font-semibold">092 707 135</span></p></a>
+                        <a href="https://wa.me/59899707135" target="_blank"><p className="hover:text-gray-400">Teléfono: <span className="font-semibold">092 707 135</span></p></a>
                         <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank"><p className="hover:text-gray-400">Tajes esq. Nardone, Santa Lucía, Canelones</p></a>
                         <div className='flex items-center gap-2'>
-                            <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' />
-                            <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' />
-                            <img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' />
+                            <a href="https://wa.me/59899707135" target="_blank"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
+                            <a href="https://www.instagram.com/climatizacion_santa_lucia/" target="_blank"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' /></a>
+                            <a href="https://www.facebook.com/profile.php?id=61560347577671" target="_blank"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' /></a>
                         </div>
+                        <div className="text-xs text-center text-gray-300">
+                            <p>© 2024 Climatización Santa Lucía</p>
+                            <a href="https://www.instagram.com/border.visual/" target="_blank"><p className="hover:text-white duration-200">Diseño web por BORDER</p></a>
+                        </div>                        
                     </div>
                 </div>
             </div>

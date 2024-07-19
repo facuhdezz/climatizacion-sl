@@ -31,7 +31,7 @@ const ProductCat = () => {
         if (cat == "todos"){
             return [...productos]
         } else {
-            return productos.filter(productos => productos.categoria == cat)
+            return productos.filter(productos => productos.categoria.includes(cat))
         }
     }
     const productsToPut = filteredProducts();

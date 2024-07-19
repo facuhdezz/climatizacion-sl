@@ -5,7 +5,7 @@ const ProductDetailComp = ({ product }) => {
                 <div className="contenedor-1 basis-3/4 overflow-hidden border border-gray-300 rounded-md aspect-square">
                     <img src={product.url} alt={product.descripcion} className="hover:scale-105 duration-200 hover:cursor-pointer mx-auto object-contain w-full h-full" />
                 </div>
-                <div className="contenedor-2 flex flex-col justify-between basis-1/4 gap-1">
+                <div className="contenedor-2 flex flex-col float-start basis-1/4 gap-1">
                     <div className="overflow-hidden border border-gray-300 rounded-md aspect-square">
                         <img src={product.url} alt={product.descripcion} className="hover:scale-105 duration-200 hover:cursor-pointer object-contain w-full h-full" />
                     </div>

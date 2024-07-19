@@ -24,7 +24,7 @@ const destacados = [
         precio: 430,
         moneda: "USD",
         id: "3",
-        categoria: "aires"
+        categoria: "aires acondicionados"
     },
     {
         url: "https://www.vivionhaus.com/uploads/cp_6461ada0dc73f523095837f2dffb9637.png",
@@ -42,7 +42,7 @@ const destacados = [
         precio: 350,
         moneda: "USD",
         id: "5",
-        categoria: "aires"
+        categoria: "aires acondicionados"
     },
     {
         url: "https://www.vivionhaus.com/uploads/cp_5458c9bcffbc1997fe1ba1ca2b0727a3.png",
@@ -60,7 +60,7 @@ const destacados = [
         precio: 520,
         moneda: "USD",
         id: "7",
-        categoria: "aires"
+        categoria: "aires acondicionados"
     },
     {
         url: "https://www.vivionhaus.com/uploads/producto-nina.jpg",
