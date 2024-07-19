@@ -36,11 +36,11 @@ const ProductDetailForm = ({ producto }) => {
         if (emailSend) {
             setTimeout(() => {
                 setEmailSend(false)
-            }, 42000)
+            }, 4000)
         } else if (emailError) {
             setTimeout(() => {
                 setEmailError(false)
-            }, 42000)
+            }, 4000)
         }
     }, [emailSend, emailError])
 
