@@ -54,7 +54,7 @@ const Nav = () => {
     return (
         <nav className="w-full sticky top-0 navbar z-10 bg-gray-950 col-span-5 border-b">
             {flag && <article className="nav-logo flex justify-around items-center pt-2">
-                <Link to={"/"}><img className='h-[50px]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>
+                <Link to={"/"}><img className='h-[50px] aspect-[339/100]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>
                 <div className='flex items-center gap-2'>
                     <a href="https://wa.me/59899707135" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
                     <a href="https://www.instagram.com/climatizacion_santa_lucia/" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' /></a>
@@ -63,7 +63,7 @@ const Nav = () => {
             </article>}
             <article className="nav-nav flex justify-center gap-4 items-center p-3 mx-auto sm:justify-between sm:w-[70%] max-sm:w-full sm:gap-6">
                 {flag && <img src={Menu} alt='Menú' onClick={toggleDropDown}/>}
-                {!flag && <Link to={"/"}><img className='h-[50px]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>}
+                {!flag && <Link to={"/"}><img className='h-[50px] aspect-[339/100]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>}
                 {/* <div className='flex gap-1 items-center bg-gray-400 w-[80%] sm:w-[65%] h-7 rounded-sm p-2'>
                     <img src={Search} alt='Buscar: ícono de lupa' />
                     <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full"/>

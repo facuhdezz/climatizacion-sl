@@ -26,7 +26,7 @@ const SearchProducts = () => {
 
     return (
         <>
-            <div className='flex gap-1 items-center bg-gray-400 w-[80%] sm:w-[90%] lg:w-[65%] h-7 rounded-sm p-2'>
+            <div className='flex gap-1 items-center bg-gray-400 w-[80%] sm:w-[90%] lg:w-[55%] h-7 rounded-sm p-2'>
                 <img src={Search} alt='Buscar: ícono de lupa' />
                 <input type="search" placeholder="Buscar" onInput={(event) => { setProductsSearch(event.target.value) }} value={productsSearch} className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full" />
                 <img src={Close} alt='Cerrar buscador.' className="hover:cursor-pointer hover:opacity-80 duration-200" onClick={() => setProductsSearch("")} />
