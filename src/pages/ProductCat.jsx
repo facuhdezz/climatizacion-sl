@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DestCard from "../components/DestCard";
 import Destacados from "../components/Destacados";
+import { Helmet } from "react-helmet-async";
 
 const ProductCat = () => {
 
@@ -38,6 +39,10 @@ const ProductCat = () => {
 
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300">
+            <Helmet>
+                <title>{title}</title>
+                <meta name="description" content={`Encuentre los mejores productos de ${title} a un precio increíble!`} />
+            </Helmet>
             <section className="py-8 flex flex-col gap-4">
                 <div>
                     <h1 className='text-xl font-semibold lg:text-3xl'>{title}</h1>
