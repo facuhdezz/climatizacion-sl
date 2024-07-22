@@ -3,7 +3,7 @@ import Wpp from '../assets/iconos/whatsapp.svg';
 import Ig from '../assets/iconos/instagram.svg';
 import Fb from '../assets/iconos/facebook.svg';
 import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Footer = () => {
     const form = useRef();
@@ -15,7 +15,9 @@ const Footer = () => {
     const publicId = import.meta.env.VITE_APP_PUBLIC || "";
 
     const sendEmail = (e) => {
+
         e.preventDefault();
+
         emailjs
             .sendForm(serviceId, templateId, form.current, {
                 publicKey: publicId,
@@ -31,6 +33,18 @@ const Footer = () => {
                 },
             );
     }
+
+    useEffect(() => {
+        if (emailSend) {
+            setTimeout(() => {
+                setEmailSend(false)
+            }, 4000)
+        } else if (emailError) {
+            setTimeout(() => {
+                setEmailError(false)
+            }, 4000)
+        }
+    }, [emailSend, emailError])
 
     return (
         <footer className="bg-gray-950 text-white p-4 items-center gap-6 col-span-5 pb-10">

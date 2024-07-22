@@ -29,7 +29,6 @@ const ProductDetailForm = ({ producto }) => {
                     setEmailError(true);
                 },
             );
-        setEmailSend(true)
     }
 
     useEffect(() => {
