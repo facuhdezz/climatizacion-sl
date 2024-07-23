@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductDetailComp from "../components/ProductDetailComp";
-import destacados from "../assets/products/destacados";
+import productos from "../assets/products/productos";
 import { useParams } from "react-router-dom";
 import Destacados from "../components/Destacados";
 import ProductDetailForm from "../components/ProductDetailForm";
@@ -15,14 +15,14 @@ const ProductDetail = () => {
         scrollToTop();
     }, [])
 
-    const { id } = useParams()
+    const { idx } = useParams()
 
     const [productUnique, setProductUnique] = useState(null)
 
     useEffect(() => {
-        const productFilter = destacados.find(destacados => destacados.id == id)
+        const productFilter = productos.find(productos => productos.idx == idx)
         setProductUnique(productFilter)
-    }, [id])
+    }, [idx])
 
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 mb-8">

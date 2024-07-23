@@ -33,3 +33,77 @@ body {
   background-image: url("./assets/imagenes/calefactor-oscuro.jpg");
   background-size: cover;
 }
+
+.modal-container .foto:hover {
+  scale: 1.05;
+}
+
+.modal-container.active {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-container.active .foto {
+  width: auto;
+  scale: 0.6;
+  margin: auto;
+}
+
+.modal-container.active .foto:hover {
+  scale: 0.8;
+}
+
+.close-modal {
+  display: none;
+}
+
+.close-modal.active {
+  display: block;
+  position: fixed;
+  top: 150px;
+  right: 100px;
+}
+
+.close-modal .boton:hover {
+  scale: 1.2;
+}
+
+@media (max-width: 900px) {
+  .modal-container.active {
+    position: fixed;
+    display: flex;
+    width: 100dvw;
+    height: 100dvh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .modal-container.active .foto {
+    scale: 1;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-container.active .foto:hover {
+    scale: 1;
+  }
+  
+  .close-modal {
+    display: none;
+  }
+  
+  .close-modal.active {
+    display: block;
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}

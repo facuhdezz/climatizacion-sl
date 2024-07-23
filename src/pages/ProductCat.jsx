@@ -1,5 +1,5 @@
 import useScrollToTop from "../functions/useScrollToTop";
-import productos from "../assets/products/destacados";
+import productos from "../assets/products/productos";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DestCard from "../components/DestCard";
@@ -49,7 +49,7 @@ const ProductCat = () => {
                 </div>
                 <div className="producto">
                     {productsToPut.map(item => (
-                        <DestCard key={item.id + 1} clase={"w-auto"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
+                        <DestCard key={item.idx + 1000} clase={"w-auto"} url={item.url} idx={item.idx} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
                     ))}
                 </div>
             </section>
