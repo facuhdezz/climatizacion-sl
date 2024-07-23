@@ -14,7 +14,7 @@ const Aside = () => {
                 </div>
                 <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Mantenimiento</h1>
                 <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Otros servicios</h1>
-                <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Sobre nosotros</h1>
+                <Link to={"/about"} className="hover:bg-gray-300"><h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Sobre nosotros</h1></Link>
             </article>
             <article className="flex flex-col gap-1 mt-4">
                 <h1 className="font-semibold py-1 px-2 text-lg 2xl:text-xl">¿Dónde encontrarnos?</h1>

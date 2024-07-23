@@ -43,10 +43,11 @@ const Nav = () => {
         return (
             <article className="bg-gray-950 flex flex-col gap-2 justify-around items-center p-3 text-white">
                 <Link onClick={toggleDropDown} to={"/"}><h1>Inicio</h1></Link>
-                <Link onClick={toggleDropDown} to={"calefactores"}><h1>Calefactores</h1></Link>
-                <Link onClick={toggleDropDown} to={"aires"}><h1>Aires acondicionados</h1></Link>
+                <Link onClick={toggleDropDown} to={"/calefactores"}><h1>Calefactores</h1></Link>
+                <Link onClick={toggleDropDown} to={"/aires"}><h1>Aires acondicionados</h1></Link>
                 <Link onClick={toggleDropDown} to={""}><h1>Otros productos</h1></Link>
                 <Link onClick={toggleDropDown} to={""}><h1>Mantenimiento</h1></Link>
+                <Link onClick={toggleDropDown} to={"/about"}><h1>Sobre Nosotros</h1></Link>
             </article>
         )
     }

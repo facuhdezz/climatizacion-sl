@@ -28,3 +28,8 @@ body {
   );
   gap: 20px;
 }
+
+.sobre-nos {
+  background-image: url("./assets/imagenes/calefactor-oscuro.jpg");
+  background-size: cover;
+}
