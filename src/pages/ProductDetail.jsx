@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import ProductDetailComp from "../components/ProductDetailComp";
-import productos from "../assets/products/productos";
 import { useParams } from "react-router-dom";
 import Destacados from "../components/Destacados";
 import ProductDetailForm from "../components/ProductDetailForm";
 import useScrollToTop from "../functions/useScrollToTop";
 import { Helmet } from "react-helmet-async";
+import { useProducts } from "../context/ProductsContext";
 
 const ProductDetail = () => {
 
@@ -16,12 +16,12 @@ const ProductDetail = () => {
     }, [])
 
     const { idx } = useParams()
-
+    const {productList} = useProducts()
     const [productUnique, setProductUnique] = useState(null)
 
     useEffect(() => {
-        const productFilter = productos.find(productos => productos.idx == idx)
-        setProductUnique(productFilter)
+        const filteredProduct = productList.find(productos => productos.idx == idx)
+        setProductUnique(filteredProduct)
     }, [idx])
 
     return (

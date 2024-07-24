@@ -1,14 +1,15 @@
 import useScrollToTop from "../functions/useScrollToTop";
-import productos from "../assets/products/productos";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DestCard from "../components/DestCard";
 import Destacados from "../components/Destacados";
 import { Helmet } from "react-helmet-async";
+import { useProducts } from "../context/ProductsContext";
 
 const ProductCat = () => {
 
     const [subCat, setSubCat] = useState("");
+    const {productList} = useProducts()
 
     const scrollToTop = useScrollToTop();
 
@@ -32,16 +33,16 @@ const ProductCat = () => {
 
     const filteredProducts = () => {
         if (cat == "todos") {
-            return [...productos]
+            return [...productList]
         } else if (cat == "aires") {
-            return productos.filter(productos => productos.categoria.includes(cat))
+            return productList.filter(productos => productos.categoria.includes(cat))
         } else if (cat == "calefactores") {
             if (subCat == "") {
-                return productos.filter(productos => productos.categoria.includes(cat))
+                return productList.filter(productos => productos.categoria.includes(cat))
             } else if (subCat == "pellet") {
-                return productos.filter(productos => productos.subcategoria?.includes("pellet"))
+                return productList.filter(productos => productos.subcategoria?.includes("pellet"))
             } else if (subCat == "leña") {
-                return productos.filter(productos => productos.subcategoria?.includes("leña"))
+                return productList.filter(productos => productos.subcategoria?.includes("leña"))
             }
         }
     }

@@ -10,19 +10,19 @@ import About from "./pages/About";
 
 function App() {
   return (
-    <HelmetProvider>
-      <div className="grid grid-cols-5">
-        <Nav />
-        <Aside />
-        <Routes>
-          <Route path={"/"} element={<Home />} />
-          <Route path={"/product/:idx"} element={<ProductDetail />} />
-          <Route path={"/:cat"} element={<ProductCat />} />
-          <Route path={"/about"} element={<About />} />
-        </Routes>
-        <Footer />
-      </div>
-    </HelmetProvider>
+      <HelmetProvider>
+        <div className="grid grid-cols-5">
+          <Nav />
+          <Aside />
+          <Routes>
+            <Route path={"/"} element={<Home />} />
+            <Route path={"/product/:idx"} element={<ProductDetail />} />
+            <Route path={"/:cat"} element={<ProductCat />} />
+            <Route path={"/about"} element={<About />} />
+          </Routes>
+          <Footer />
+        </div>
+      </HelmetProvider>
   )
 }
 

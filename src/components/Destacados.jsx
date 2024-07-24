@@ -1,11 +1,33 @@
-import destacados from '../assets/products/destacados';
-import productos from '../assets/products/productos';
 import DestCard from './DestCard';
+import { useProducts } from '../context/ProductsContext';
 
 const Destacados = () => {
 
+    const {productList} = useProducts()
+
+    // Agregando productos a firestore databse
+    // useEffect(() => {
+    //     const db = getFirestore();
+    //     const productsCollection = collection (db, "products")
+        
+    //     productos.forEach(product => {
+    //         addDoc(productsCollection, product)
+    //     });
+
+    //     console.log("productos agregados correctamente");
+    // }, [])
+
+    // useEffect(() => {
+    //     const db = getFirestore();
+    //     const q = query(collection(db, "products"), where("destacado", "==", true))
+
+    //     getDocs(q).then(result => {
+    //         setProductList(result.docs.map(product => ({id: product.id, ...product.data()})))
+    //     }, []);
+    // }, []);
+
     const filteredProducts = () => {
-        return productos.filter(productos => productos.destacado)
+        return productList.filter(productos => productos.destacado)
     } 
 
     const productosFiltrados = filteredProducts();
@@ -17,7 +39,7 @@ const Destacados = () => {
                 <h2 className='text-base font-semibold text-blue-800 lg:text-xl'>¡Los más vendidos!</h2>
             </div>            
             <div className='flex gap-2 overflow-x-scroll pb-3'>{productosFiltrados.map(item => (
-                <DestCard key={item.idx+1000} clase={"w-36"} url={item.url} idx={item.idx} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
+                <DestCard key={item.id} clase={"w-36"} url={item.url} idx={item.idx} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
             ))}
             </div>
         </section>
