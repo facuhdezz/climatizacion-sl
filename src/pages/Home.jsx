@@ -14,7 +14,7 @@ const Home = () => {
     }, [])
 
     return (
-        <main className="col-span-3 max-lg:col-span-5 px-3">
+        <main className="col-span-3 max-lg:col-span-5 px-3 bg-white m-3 rounded-lg">
             <Destacados />
             <CatBanner />
             <article className="sticky bottom-3">

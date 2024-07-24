@@ -4,7 +4,7 @@ import Asesoramiento from "../assets/iconos/asesoramiento.png"
 
 const About = () => {
     return (
-        <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 mb-8 mt-4">
+        <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 pb-8 pt-3 bg-white m-3 rounded-lg">
             <section className="flex flex-col gap-4 mb-4">
                 <div className="flex-col text-white py-6 px-10 sm:p-16 sm:gap-4 md:px-36 sobre-nos rounded-lg flex ">
                     <h1 className="text-3xl sm:text-[3rem] font-semibold mb-2">Sobre Nosotros</h1>

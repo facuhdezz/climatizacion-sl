@@ -25,7 +25,7 @@ const ProductDetail = () => {
     }, [idx])
 
     return (
-        <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 mb-8">
+        <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 pb-8 bg-white m-3 rounded-lg">
             {productUnique && <Helmet>
                 <title>{productUnique.nombre}</title>
                 <meta name="description" content={productUnique.descripcion} />

@@ -29,23 +29,27 @@ const ProductDetailComp = ({ product }) => {
             </article> */}
             <div className={`overflow-hidden border border-gray-300 rounded-md sm:basis-1/2 modal-container ${modal}`}>
                 <img src={product.url} alt={product.descripcion} className="duration-200 hover:cursor-pointer w-full h-full foto" onClick={clickImg}/>
-                <div className={`close-modal ${modal} bg-white w-[80px] h-[80px]`} onClick={clickImg}>
+                <div className={`close-modal ${modal} bg-white w-[60px] h-[60px] rounded-lg`} onClick={clickImg}>
                     <img src={Close} alt="Icono de cerrar" className="w-full h-full hover:cursor-pointer duration-200 boton"/>
                 </div>                
             </div>
             <article className="flex flex-col gap-1 basis-1/2">
                 <h1 className="text-gray-600 sm:text-lg">{product.nombre}</h1>
-                <h1 className="font-semibold text-xl sm:text-3xl leading-tight">{product.descripcion}</h1>
+                <h1 className="font-semibold text-xl sm:text-3xl 2xl:text-[2.5rem] 2xl:leading-[3rem] leading-tight">{product.descripcion}</h1>
                 <h1 className="text-lg sm:text-2xl">{product.moneda} <span className="font-bold">{product.precio}</span></h1>
                 <div className="mt-2">
                     <h2 className="text-lg font-semibold">Características:</h2>
-                    <ul>
+                    <div className="flex flex-col divide-y divide-gray-400 max-h-[200px] sm:max-h-[108px] xl:max-h-[150px] overflow-y-scroll rounded-md">
                         {Object.entries(product.caracteristicas).map(([key, value]) => {
                             return (
-                            <li className="text-base">{key}: <span className="font-semibold">{value}</span></li>
+                            // <li className="text-base">{key}: <span className="font-semibold">{value}</span></li>
+                            <div className="flex divide-x divide-gray-400 text-base sm:text-sm xl:text-base">
+                                <div className="bg-gray-300 basis 1/2 w-full p-3 sm:p-2 xl:p-3"><h1 className="text-black">{key}:</h1></div>
+                                <div className="bg-gray-200 basis 1/2 w-full p-3 sm:p-2 xl:p-3"><h1 className="text-black font-semibold">{value}</h1></div>
+                            </div>
                             )
                         })}
-                    </ul>
+                    </div>
                 </div>
             </article>
         </article>
