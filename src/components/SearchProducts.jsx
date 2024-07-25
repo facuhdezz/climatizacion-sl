@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import destacados from "../assets/products/destacados";
 import Search from '../assets/iconos/search.svg';
 import Close from '../assets/iconos/close.svg';
 import { Link } from "react-router-dom";
+import { useProducts } from "../context/ProductsContext";
 
 const SearchProducts = () => {
 
@@ -10,12 +10,14 @@ const SearchProducts = () => {
     const [someProducts, setSomeProducts] = useState(true)
     const [productsSearch, setProductsSearch] = useState("");
 
+    const {productList} = useProducts()
+
     useEffect(() => {
         if (productsSearch.length == 0) {
             setProductsFiltered([])
             setSomeProducts(true)
         } else {
-            const filteredProducts = destacados.filter((product) => product.descripcion.toLocaleLowerCase().includes(productsSearch.toLocaleLowerCase()) || product.categoria.toLocaleLowerCase().includes(productsSearch.toLocaleLowerCase()))
+            const filteredProducts = productList.filter((product) => product.descripcion.toLocaleLowerCase().includes(productsSearch.toLocaleLowerCase()) || product.categoria.toLocaleLowerCase().includes(productsSearch.toLocaleLowerCase()))
             if (productsFiltered.length > 0) {
                 setSomeProducts(true)
             }
@@ -34,7 +36,7 @@ const SearchProducts = () => {
             {productsSearch && <div className="fixed top-[120px] left-0 w-full lg:top-20">
                 <div className="max-sm:w-full sm:w-[80%] lg:w-[50%] mx-auto divide-y h-[75dvh] overflow-y-scroll">
                 {productsFiltered.map((product) => (
-                    <Link to={"/product/" + product.id}><div className="flex gap-5 h-28 p-4 bg-white hover:bg-gray-100 duration-200 border-b">
+                    <Link to={"/product/" + product.id} onClick={() => setProductsSearch("")}><div className="flex gap-5 h-28 p-4 bg-white hover:bg-gray-100 duration-200 border-b">
                         <img src={product.url} alt={product.nombre} />
                         <div>
                             <p>{product.moneda} <span className="font-semibold">{product.precio}</span></p>

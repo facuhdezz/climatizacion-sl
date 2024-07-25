@@ -30,7 +30,7 @@ const ProductDetail = () => {
                 <title>{productUnique.nombre}</title>
                 <meta name="description" content={productUnique.descripcion} />
             </Helmet>}
-            <section className="flex flex-col w-full 2xl:w-[90%] m-auto px-3 gap-6 py-3 xl:py-8 mb-4 max-lg:items-center">
+            <section className="flex flex-col w-full 2xl:w-[90%] m-auto px-3 gap-6 max-xl:py-6 xl:py-8 mb-4 max-lg:items-center">
                 {productUnique && <ProductDetailComp product={productUnique} />}
                 {productUnique && <ProductDetailForm producto={productUnique} />}
             </section>

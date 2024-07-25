@@ -76,7 +76,7 @@ const ProductDetailForm = ({ producto }) => {
                     <textarea className="bg-gray-100 w-full h-24 lg:h-36 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" placeholder="Mensaje *" required></textarea>
                 </div>
                 <input type="hidden" name="product" value={producto.descripcion} />
-                <button className="border border-gray-300 rounded px-4 hover:bg-white duration-200">Enviar</button>
+                <button className="border border-gray-300 rounded px-4 py-1 text-xl hover:bg-gray-100 duration-200">Enviar</button>
             </form>
         </>
     )

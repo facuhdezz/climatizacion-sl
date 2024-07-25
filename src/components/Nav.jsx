@@ -57,7 +57,7 @@ const Nav = () => {
             {flag && <article className="nav-logo flex justify-around items-center pt-2">
                 <Link to={"/"}><img className='h-[50px] aspect-[339/100]' src={Logo} alt='Logo de Climatización Santa Lucía: fuego con copo de nieve debajo' /></Link>
                 <div className='flex items-center gap-2'>
-                    <a href="https://wa.me/59899707135" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
+                    <a href="https://wa.me/59898437511" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
                     <a href="https://www.instagram.com/climatizacion_santa_lucia/" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' /></a>
                     <a href="https://www.facebook.com/profile.php?id=61560347577671" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' /></a>
                 </div>
@@ -72,7 +72,7 @@ const Nav = () => {
                 <SearchProducts />
                 <img className="hidden" src={Cart} alt='Carrito de compras' />
                 {!flag && <div className='flex items-center gap-2'>
-                    <a href="https://wa.me/59899707135" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
+                    <a href="https://wa.me/59898437511" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
                     <a href="https://www.instagram.com/climatizacion_santa_lucia/" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' /></a>
                     <a href="https://www.facebook.com/profile.php?id=61560347577671" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' /></a>
                 </div>}

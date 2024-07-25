@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getFirestore, collection, getDocs,  } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, query, where,  } from 'firebase/firestore';
 
 
 const ProductsContext = createContext();
@@ -13,7 +13,8 @@ export const ProductsProvider = ({children}) => {
 
     useEffect(() => {
         const db = getFirestore();
-        getDocs(collection(db, "products")).then(result => {
+        const q = query(collection(db, "products"), where("precio", ">", "0"))
+        getDocs(q).then(result => {
             setProductList(result.docs.map(product => ({id: product.id, ...product.data()})))
         });
     }, []);

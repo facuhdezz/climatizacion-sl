@@ -34,18 +34,18 @@ const ProductDetailComp = ({ product }) => {
                 </div>                
             </div>
             <article className="flex flex-col gap-1 basis-1/2">
-                <h1 className="text-gray-600 sm:text-lg">{product.nombre}</h1>
-                <h1 className="font-semibold text-xl sm:text-3xl 2xl:text-[2.5rem] 2xl:leading-[3rem] leading-tight">{product.descripcion}</h1>
-                <h1 className="text-lg sm:text-2xl">{product.moneda} <span className="font-bold">{product.precio}</span> <span className="text-gray-600 text-base">IVA INC.</span></h1>
-                <div className="mt-2">
+                <h1 className="text-blue-800 sm:text-lg">{product.nombre}</h1>
+                <h1 className="font-semibold text-xl sm:text-3xl 2xl:text-[2.3rem] 2xl:leading-[3rem] leading-tight">{product.descripcion}</h1>
+                <h1 className="text-xl sm:text-2xl 2xl:text-3xl mt-2 2xl:my-4 text-blue-900">{product.moneda} <span className="font-bold">{product.precio}</span> <span className="text-gray-600 text-base">IVA INC.</span></h1>
+                <div className="">
                     <h2 className="text-lg font-semibold">Características:</h2>
                     <div className="flex flex-col divide-y divide-gray-400 max-h-[200px] sm:max-h-[108px] xl:max-h-[150px] overflow-y-scroll rounded-md">
                         {Object.entries(product.caracteristicas).map(([key, value]) => {
                             return (
                             // <li className="text-base">{key}: <span className="font-semibold">{value}</span></li>
                             <div className="flex divide-x divide-gray-400 text-base sm:text-sm xl:text-base">
-                                <div className="bg-gray-300 basis 1/2 w-full p-3 sm:p-2 xl:p-3"><h1 className="text-black">{key}:</h1></div>
-                                <div className="bg-gray-200 basis 1/2 w-full p-3 sm:p-2 xl:p-3"><h1 className="text-black font-semibold">{value}</h1></div>
+                                <div className="bg-gray-200 basis 1/2 w-full p-3 sm:p-2 xl:p-3"><h1 className="text-black">{key}:</h1></div>
+                                <div className="bg-gray-100 basis 1/2 w-full p-3 sm:p-2 xl:p-3"><h1 className="text-black font-semibold">{value}</h1></div>
                             </div>
                             )
                         })}
