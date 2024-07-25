@@ -36,7 +36,7 @@ const ProductDetailComp = ({ product }) => {
             <article className="flex flex-col gap-1 basis-1/2">
                 <h1 className="text-gray-600 sm:text-lg">{product.nombre}</h1>
                 <h1 className="font-semibold text-xl sm:text-3xl 2xl:text-[2.5rem] 2xl:leading-[3rem] leading-tight">{product.descripcion}</h1>
-                <h1 className="text-lg sm:text-2xl">{product.moneda} <span className="font-bold">{product.precio}</span></h1>
+                <h1 className="text-lg sm:text-2xl">{product.moneda} <span className="font-bold">{product.precio}</span> <span className="text-gray-600 text-base">IVA INC.</span></h1>
                 <div className="mt-2">
                     <h2 className="text-lg font-semibold">Características:</h2>
                     <div className="flex flex-col divide-y divide-gray-400 max-h-[200px] sm:max-h-[108px] xl:max-h-[150px] overflow-y-scroll rounded-md">

@@ -39,7 +39,7 @@ const Destacados = () => {
                 <h2 className='text-base font-semibold text-blue-800 lg:text-xl'>¡Los más vendidos!</h2>
             </div>            
             <div className='flex gap-2 overflow-x-scroll pb-3'>{productosFiltrados.map(item => (
-                <DestCard key={item.id} clase={"w-36"} url={item.url} idx={item.idx} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
+                <DestCard key={item.id} clase={"w-36"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
             ))}
             </div>
         </section>

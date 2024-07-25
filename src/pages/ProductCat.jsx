@@ -70,7 +70,7 @@ const ProductCat = () => {
                 </div>
                 <div className="producto pt-4">
                     {productsToPut.map(item => (
-                        <DestCard key={item.idx + 1000} clase={"w-auto"} url={item.url} idx={item.idx} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
+                        <DestCard key={item.id} clase={"w-auto"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
                     ))}
                 </div>
             </section>
