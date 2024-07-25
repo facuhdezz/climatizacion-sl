@@ -1,9 +1,10 @@
 import DestCard from './DestCard';
 import { useProducts } from '../context/ProductsContext';
+import Spinner from './Spinner';
 
 const Destacados = () => {
 
-    const {productList} = useProducts()
+    const {productList, loading} = useProducts();
 
     // Agregando productos a firestore databse
     // useEffect(() => {
@@ -38,7 +39,8 @@ const Destacados = () => {
                 <h1 className='text-2xl font-semibold lg:text-3xl 2xl:text-[2.2rem]'>Productos destacados</h1>
                 <h2 className='text-base font-semibold text-blue-800 lg:text-xl'>¡Los más vendidos!</h2>
             </div>            
-            <div className='flex gap-2 overflow-x-scroll pb-3'>{productosFiltrados.map(item => (
+            <div className={`flex gap-2 overflow-x-scroll pb-3 h-[333px] w-full ${loading && "border rounded bg-gray-50"}`}>                
+                {loading ? <Spinner /> : productosFiltrados.map(item => (
                 <DestCard key={item.id} clase={"w-36"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
             ))}
             </div>
