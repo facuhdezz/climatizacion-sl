@@ -5,6 +5,7 @@ import Spinner from './Spinner';
 const Destacados = () => {
 
     const {productList, loading} = useProducts();
+    console.log(productList);
 
     // Agregando productos a firestore databse
     // useEffect(() => {
