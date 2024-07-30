@@ -37,6 +37,13 @@ const ProductDetailComp = ({ product }) => {
                 <h1 className="text-blue-800 sm:text-lg">{product.nombre}</h1>
                 <h1 className="font-semibold text-xl sm:text-3xl 2xl:text-[2.3rem] 2xl:leading-[3rem] leading-tight">{product.descripcion}</h1>
                 <h1 className="text-xl sm:text-2xl 2xl:text-3xl mt-2 2xl:my-4 text-blue-900">{product.moneda} <span className="font-bold">{product.precio}</span> <span className="text-gray-600 text-base">IVA INC.</span></h1>
+                <div>
+                    {product.opcionales && Object.entries(product.opcionales).map(([key, value]) => {
+                        return (
+                            <h2>{key}: <span className="text-blue-900">{product.moneda} <span className="font-semibold">{value}</span></span></h2>
+                        )
+                    })}
+                </div>
                 <div className="">
                     <h2 className="text-lg font-semibold">Características:</h2>
                     <div className="flex flex-col divide-y divide-gray-400 max-h-[200px] sm:max-h-[108px] xl:max-h-[150px] overflow-y-scroll rounded-md">

@@ -4,6 +4,7 @@ import SobreNos from "../components/SobreNos";
 import Wpp from "../assets/iconos/wpp.png"
 import useScrollToTop from "../functions/useScrollToTop";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
 
@@ -15,6 +16,10 @@ const Home = () => {
 
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3 bg-white m-3 rounded-lg">
+            <Helmet>
+                <title>Climatización Santa Lucía</title>
+                <meta name="description" content="Somos Climatización Santa Lucía, dedicados a la venta, instalación y mantenimiento de equipos de calefacción y aires acondicionados." />
+            </Helmet>
             <Destacados />
             <CatBanner />
             <article className="sticky bottom-3">

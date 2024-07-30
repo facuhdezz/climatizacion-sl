@@ -17,7 +17,7 @@ const Aside = () => {
                         <Link to={"/calefactores"} className="hover:bg-gray-100 ml-3"><h2 className="text-sm 2xl:text-base duration-200 px-2 py-1">Calefactores</h2></Link>
                         <Link to={"/aires"} className="hover:bg-gray-100 ml-3"><h2 className="text-sm 2xl:text-base duration-200 px-2 py-1">Aires acondicionados</h2></Link>
                         <Link to={"/todos"} className="hover:bg-gray-100 ml-3"><h2 className="text-sm 2xl:text-base duration-200 px-2 py-1">Todos los productos</h2></Link>
-                        <Link className="hover:bg-gray-100 ml-3"><h2 className="text-sm 2xl:text-base duration-200 px-2 py-1">Otros productos</h2></Link>
+                        <Link to={"/otros"} className="hover:bg-gray-100 ml-3"><h2 className="text-sm 2xl:text-base duration-200 px-2 py-1">Otros productos</h2></Link>
                     </div>
                     {/* <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Mantenimiento</h1>
                     <h1 className="text-black font-semibold py-1 px-2 text-base 2xl:text-lg">Otros servicios</h1> */}

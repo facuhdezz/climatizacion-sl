@@ -5,11 +5,14 @@ import DestCard from "../components/DestCard";
 import Destacados from "../components/Destacados";
 import { Helmet } from "react-helmet-async";
 import { useProducts } from "../context/ProductsContext";
+import Sort from "../assets/iconos/sort.svg";
 
 const ProductCat = () => {
 
     const [subCat, setSubCat] = useState("");
-    const {productList} = useProducts()
+    const { productList } = useProducts();
+    const [filter, setFilter] = useState("");
+    const [productsToPut, setProductsToPut] = useState([])
 
     const scrollToTop = useScrollToTop();
 
@@ -26,15 +29,19 @@ const ProductCat = () => {
             return "Aires Acondicionados";
         } else if (cat == "calefactores") {
             return "Calefactores";
+        } else if (cat == "otros") {
+            return "Otros Productos"
         }
     }
 
     const title = titleIf();
 
-    const filteredProducts = () => {
+    const filterProducts = () => {
         if (cat == "todos") {
             return [...productList]
         } else if (cat == "aires") {
+            return productList.filter(productos => productos.categoria.includes(cat))
+        } else if (cat == "otros") {
             return productList.filter(productos => productos.categoria.includes(cat))
         } else if (cat == "calefactores") {
             if (subCat == "") {
@@ -46,12 +53,21 @@ const ProductCat = () => {
             }
         }
     }
-    
-    const productsToPut = filteredProducts();
+
+    const sortProducts = (products) => {
+        if (filter === "menor") {
+            return products.sort((a, b) => a.precio - b.precio);
+        } else if (filter === "mayor") {
+            return products.sort((a, b) => b.precio - a.precio);
+        }
+        return products;
+    };
 
     useEffect(() => {
-       const productsToPut = filteredProducts(); 
-    }, [subCat])
+        const filtered = filterProducts();
+        const sorted = sortProducts(filtered);
+        setProductsToPut(sorted);
+    }, [cat, subCat, filter, productList]);
 
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 bg-white m-3 rounded-lg">
@@ -63,10 +79,15 @@ const ProductCat = () => {
                 <div className="flex flex-col 2xl:flex-row gap-2 2xl:items-end 2xl:gap-10">
                     <h1 className='text-2xl font-semibold lg:text-[2.2rem] text-blue-800'>{title}</h1>
                     {(cat == "calefactores") && <div className="flex flex-wrap gap-1 max-sm:text-sm sm:gap-4 text-gray-600">
-                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "" ? "border-b-2 border-blue-600" : ""}`} onClick={() => {setSubCat("")}}>Todos los calefactores</h2>
-                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "pellet" ? "border-b-2 border-blue-600" : ""}`} onClick={() => {setSubCat("pellet")}}>Calefactores a pellet</h2>
-                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "leña" ? "border-b-2 border-blue-600" : ""}`} onClick={() => {setSubCat("leña")}}>Calefactores a leña</h2>
+                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("") }}>Todos los calefactores</h2>
+                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "pellet" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("pellet") }}>Calefactores a pellet</h2>
+                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "leña" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("leña") }}>Calefactores a leña</h2>
                     </div>}
+                </div>
+                <div className="flex flex-row gap-4 pt-4">
+                    <h1>Ordenar por:</h1>
+                    <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><h1 className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("menor") }}>Menor Precio</h1></div>
+                    <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><h1 className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("mayor") }}>Mayor Precio</h1></div>
                 </div>
                 <div className="producto pt-4">
                     {productsToPut.map(item => (
