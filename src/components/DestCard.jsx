@@ -13,8 +13,8 @@ const DestCard = (item) => {
                 </div>
                 <div className="flex flex-col gap-1">
                     <h1 className="text-xs text-blue-800">{item.nombre}</h1>
-                    <h3 className="text-sm">{item.descripcion}</h3>
-                    <h4 className="text-sm mt-2">{item.moneda} <span className="font-bold">{item.precio}</span></h4>
+                    <h4 className="text-base mb-1">{item.moneda} <span className="font-bold">{item.precio}</span></h4>
+                    <h3 className="text-sm h-[60px] overflow-hidden">{item.descripcion}</h3>
                 </div>
             </div>            
             <Link to={"/product/" + item.id} className="text-center" onClick={scrollToTop}><button className="border rounded bg-white px-2">Ver más</button></Link>

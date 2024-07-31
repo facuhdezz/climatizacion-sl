@@ -1,12 +1,20 @@
 import { useState } from "react";
 import Close from '../assets/iconos/close.svg';
+import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const ProductDetailComp = ({ product }) => {
 
     const [modal, setModal] = useState("")
 
+    const {addProduct} = useCart();
+
     const clickImg = () => {
         setModal((prevModal) => (prevModal === "" ? "active" : ""))
+    }
+
+    const handleAddProduct = () => {
+        addProduct(product)
     }
 
     return (
@@ -57,6 +65,10 @@ const ProductDetailComp = ({ product }) => {
                             )
                         })}
                     </div>
+                </div>
+                <div className="flex flex-row gap-2 pt-2">
+                    <Link to={"/carrito"} className="w-full"><button className="w-full bg-green-700 hover:bg-green-900 text-white rounded p-2" onClick={handleAddProduct}>Comprar</button></Link>
+                    <button className="w-full bg-gray-100 hover:bg-gray-200 rounded p-2 border" onClick={handleAddProduct}>Agregar al carrito</button>
                 </div>
             </article>
         </article>

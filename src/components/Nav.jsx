@@ -1,5 +1,4 @@
 import Menu from '../assets/iconos/menu.svg';
-import Search from '../assets/iconos/search.svg';
 import Cart from '../assets/iconos/cart.svg';
 import Wpp from '../assets/iconos/whatsapp.svg';
 import Ig from '../assets/iconos/instagram.svg';
@@ -8,12 +7,16 @@ import Logo from '../assets/logos/logonav.png';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchProducts from './SearchProducts';
+import { useCart } from '../context/CartContext';
 
 const Nav = () => {
 
     const [display, setDisplay] = useState(window.innerWidth);
     const [flag, setFlag] = useState(false);
     const [displayed, setDisplayed] = useState(false)
+    const {totalProduct} = useCart();
+
+    console.log(totalProduct);
 
     useEffect(() => {
         const changeWidth = () => {
@@ -45,8 +48,8 @@ const Nav = () => {
                 <Link onClick={toggleDropDown} to={"/"}><h1>Inicio</h1></Link>
                 <Link onClick={toggleDropDown} to={"/calefactores"}><h1>Calefactores</h1></Link>
                 <Link onClick={toggleDropDown} to={"/aires"}><h1>Aires acondicionados</h1></Link>
-                <Link onClick={toggleDropDown} to={""}><h1>Otros productos</h1></Link>
-                <Link onClick={toggleDropDown} to={""}><h1>Mantenimiento</h1></Link>
+                <Link onClick={toggleDropDown} to={"/otros"}><h1>Otros productos</h1></Link>
+                {/* <Link onClick={toggleDropDown} to={""}><h1>Mantenimiento</h1></Link> */}
                 <Link onClick={toggleDropDown} to={"/about"}><h1>Sobre Nosotros</h1></Link>
             </article>
         )
@@ -70,7 +73,12 @@ const Nav = () => {
                     <input type="search" placeholder="Buscar" className="search-input bg-transparent outline-none placeholder:text-gray-200 w-full"/>
                 </div> */}
                 <SearchProducts />
-                <img className="hidden" src={Cart} alt='Carrito de compras' />
+                <div className="relative">
+                    <Link to={"/carrito"}><img className="" src={Cart} alt='Carrito de compras' /></Link>
+                    <span className="rounded-full px-[2px] text-xs font-bold bg-red-700 text-white absolute top-[-8px] right-[-8px]">
+                        {totalProduct() > 0 && totalProduct()}
+                    </span>
+                </div>
                 {!flag && <div className='flex items-center gap-2'>
                     <a href="https://wa.me/59898437511" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
                     <a href="https://www.instagram.com/climatizacion_santa_lucia/" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' /></a>

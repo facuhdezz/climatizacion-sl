@@ -1,9 +1,12 @@
+import { CartProvider } from "./CartContext";
 import { ProductsProvider } from "./ProductsContext"
 
 const AppProvider = ({children}) => {
     return (
         <ProductsProvider>
-            {children}
+            <CartProvider>
+                {children}
+            </CartProvider>
         </ProductsProvider>
     )
 }
