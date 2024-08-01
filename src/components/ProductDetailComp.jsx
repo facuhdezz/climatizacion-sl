@@ -53,7 +53,7 @@ const ProductDetailComp = ({ product }) => {
                     })}
                 </div>
                 <div className="">
-                    <h2 className="text-lg font-semibold">Características:</h2>
+                    {Object.keys(product.caracteristicas).length > 0 && <h2 className="text-lg font-semibold">Características:</h2>}
                     <div className="flex flex-col divide-y divide-gray-400 max-h-[200px] sm:max-h-[108px] xl:max-h-[150px] overflow-y-scroll rounded-md">
                         {Object.entries(product.caracteristicas).map(([key, value]) => {
                             return (

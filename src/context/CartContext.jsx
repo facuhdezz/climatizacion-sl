@@ -10,6 +10,17 @@ export const CartProvider = ({children}) => {
 
     const [productCart, setProductCart] = useState([]);
 
+    useEffect(() => {
+        const storedCart = localStorage.getItem('productCart');
+        if (storedCart) {
+            setProductCart(JSON.parse(storedCart));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('productCart', JSON.stringify(productCart));
+    }, [productCart]);
+
     const addProduct = (product) => {
         setProductCart((prevProductCart) => [...prevProductCart, product]);
     }

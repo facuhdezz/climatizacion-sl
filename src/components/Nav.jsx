@@ -16,8 +16,6 @@ const Nav = () => {
     const [displayed, setDisplayed] = useState(false)
     const {totalProduct} = useCart();
 
-    console.log(totalProduct);
-
     useEffect(() => {
         const changeWidth = () => {
             setDisplay(window.innerWidth);
