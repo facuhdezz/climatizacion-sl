@@ -21,8 +21,19 @@ export const CartProvider = ({children}) => {
         localStorage.setItem('productCart', JSON.stringify(productCart));
     }, [productCart]);
 
+    const isInCart = (id) => {
+        return productCart.some(item => item.id == id)
+    }
+
     const addProduct = (product) => {
-        setProductCart((prevProductCart) => [...prevProductCart, product]);
+        if(isInCart(product.id)) {
+            let index = productCart.findIndex(item => item.id == product.id);
+            productCart[index].cantidad += 1;
+            setProductCart([...productCart]);
+        } else {
+            productCart.push({...product, cantidad: 1});
+            setProductCart([...productCart]);
+        }
     }
 
     const deleteProduct = (id) => {
@@ -35,7 +46,7 @@ export const CartProvider = ({children}) => {
     }
 
     const totalProduct = () => {
-        return productCart.length
+        return productCart.reduce((cant, item) => cant += item.cantidad, 0)
     };
 
     return (

@@ -68,15 +68,16 @@ const Cart = () => {
     return (
         <main className="col-span-4 max-lg:col-span-5 p-3 pt-8 bg-white m-3 rounded-lg text-center">
             <h1 className="text-3xl font-semibold">Carrito de compras</h1>
-            <p className="text-2xl">Bienvenido al carrito de compras</p>
+            {/* <p className="text-2xl">Bienvenido al carrito de compras</p> */}
             <section className="p-1 sm:p-6 w-full xl:w-[50dvw] mx-auto flex flex-col gap-4 text-sm sm:text-base">
-                <article className="flex bg-gray-100 rounded border pt-2">
+                <article className="flex flex-col bg-gray-100 rounded border pt-2">
                     <table className="w-full">
                         <thead className="border-b">
                             <tr className="text-center">
                                 <th></th>
                                 <th>Producto</th>
                                 <th>Precio</th>
+                                <th>Cantidad</th>
                                 <th>Subtotal</th>
                                 <th></th>
                             </tr>
@@ -87,12 +88,14 @@ const Cart = () => {
                                     <th><Link to={"/item/" + product.id}><img src={product.url} alt={product.nombre} className="w-20" /></Link></th>
                                     <th><Link to={"/item/" + product.id}>{product.nombre}</Link></th>
                                     <th>{product.moneda} {product.precio}</th>
-                                    <th>{product.moneda} {product.precio}</th>
-                                    <th onClick={() => { handleRemove(product.id) }}><img src={Close} className="trash light-icons" alt="borrar elemento" /></th>
+                                    <th>{product.cantidad}</th>
+                                    <th>{product.moneda} {product.cantidad * product.precio}</th>
+                                    <th onClick={() => { handleRemove(product.id) }}><img src={Close} className="hover:cursor-pointer hover:scale-105" alt="borrar elemento" /></th>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                    {Object.keys(productCart).length == 0 && <div className="p-6"><p className="font-semibold">No hay productos en el carrito</p></div>}
                 </article>
                 <article className="flex flex-col bg-gray-100 rounded border pt-3 divide-y h-auto">
                     <h1 className="text-lg font-semibold">Totales del carrito</h1>

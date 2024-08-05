@@ -12,15 +12,46 @@ const ProductCat = () => {
     const [subCat, setSubCat] = useState("");
     const { productList } = useProducts();
     const [filter, setFilter] = useState("");
-    const [productsToPut, setProductsToPut] = useState([])
+    const [productsToPut, setProductsToPut] = useState([]);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 8;
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = productsToPut.slice(indexOfFirstProduct, indexOfLastProduct)
+
+    const totalPages = Math.ceil(productsToPut.length / productsPerPage)
+
+    const handleClick = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        scrollToTop();
+    }
+
+    const Pagination = ({ totalPages, currentPage, handleClick }) => {
+        const pageNumbers = [];
+        for (let i = 1; i <= totalPages; i++) {
+          pageNumbers.push(i);
+        }
+      
+        return (
+          <div className="pagination">
+            {pageNumbers.map((number) => (
+              <button key={number} onClick={() => handleClick(number)} disabled={number === currentPage}>
+                {number}
+              </button>
+            ))}
+          </div>
+        );
+      };
 
     const scrollToTop = useScrollToTop();
 
     useEffect(() => {
         scrollToTop();
-    }, [])
+    }, []);
 
-    const { cat } = useParams()
+    const { cat } = useParams();
 
     const titleIf = () => {
         if (cat == "todos") {
@@ -79,9 +110,9 @@ const ProductCat = () => {
                 <div className="flex flex-col 2xl:flex-row gap-2 2xl:items-end 2xl:gap-10">
                     <h1 className='text-2xl font-semibold lg:text-[2.2rem] text-blue-800'>{title}</h1>
                     {(cat == "calefactores") && <div className="flex flex-wrap gap-1 max-sm:text-sm sm:gap-4 text-gray-600">
-                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("") }}>Todos los calefactores</h2>
-                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "pellet" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("pellet") }}>Calefactores a pellet</h2>
-                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "leña" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("leña") }}>Calefactores a leña</h2>
+                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat(""); setCurrentPage(1); }}>Todos los calefactores</h2>
+                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "pellet" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("pellet"); setCurrentPage(1); }}>Calefactores a pellet</h2>
+                        <h2 className={`hover:cursor-pointer hover:text-gray-800 mx-2 ${subCat == "leña" ? "border-b-2 border-blue-600" : ""}`} onClick={() => { setSubCat("leña"); setCurrentPage(1); }}>Calefactores a leña</h2>
                     </div>}
                 </div>
                 <div className="flex flex-row gap-4 pt-4">
@@ -90,10 +121,11 @@ const ProductCat = () => {
                     <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><h1 className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("mayor") }}>Mayor Precio</h1></div>
                 </div>
                 <div className="producto pt-4">
-                    {productsToPut.map(item => (
+                    {currentProducts.map(item => (
                         <DestCard key={item.id} clase={"w-auto"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
                     ))}
                 </div>
+                <Pagination totalPages={totalPages} handleClick={handleClick} currentPage={currentPage} />
             </section>
             <Destacados />
         </main>
