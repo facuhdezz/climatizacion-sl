@@ -1,10 +1,10 @@
 import CatBanner from "../components/CatBanner";
 import Destacados from "../components/Destacados";
-import SobreNos from "../components/SobreNos";
 import Wpp from "../assets/iconos/wpp.png"
 import useScrollToTop from "../functions/useScrollToTop";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { TextHome } from "../components/Info";
 
 const Home = () => {
 
@@ -28,7 +28,7 @@ const Home = () => {
                     <h1 className="text-white font-bold">Escribinos</h1>
                 </a>
             </article>
-            <SobreNos />
+            <TextHome />
         </main>
     );
 }

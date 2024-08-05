@@ -6,6 +6,8 @@ import Destacados from "../components/Destacados";
 import { Helmet } from "react-helmet-async";
 import { useProducts } from "../context/ProductsContext";
 import Sort from "../assets/iconos/sort.svg";
+import Pagination from "../components/Pagination";
+import { TextCalefactores, TextLena, TextPellet } from "../components/Info";
 
 const ProductCat = () => {
 
@@ -27,23 +29,6 @@ const ProductCat = () => {
         setCurrentPage(pageNumber);
         scrollToTop();
     }
-
-    const Pagination = ({ totalPages, currentPage, handleClick }) => {
-        const pageNumbers = [];
-        for (let i = 1; i <= totalPages; i++) {
-          pageNumbers.push(i);
-        }
-      
-        return (
-          <div className="pagination">
-            {pageNumbers.map((number) => (
-              <button key={number} onClick={() => handleClick(number)} disabled={number === currentPage}>
-                {number}
-              </button>
-            ))}
-          </div>
-        );
-      };
 
     const scrollToTop = useScrollToTop();
 
@@ -126,6 +111,9 @@ const ProductCat = () => {
                     ))}
                 </div>
                 <Pagination totalPages={totalPages} handleClick={handleClick} currentPage={currentPage} />
+                {subCat == "pellet" && <TextPellet />}
+                {subCat == "leña" && <TextLena />}
+                {(cat == "calefactores" && subCat == "") && <TextCalefactores />}
             </section>
             <Destacados />
         </main>
