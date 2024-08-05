@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 import { useProducts } from "../context/ProductsContext";
 import Sort from "../assets/iconos/sort.svg";
 import Pagination from "../components/Pagination";
-import { TextCalefactores, TextLena, TextPellet } from "../components/Info";
+import { TextCalefactores, TextCat, TextLena, TextPellet } from "../components/Info";
 
 const ProductCat = () => {
 
@@ -111,9 +111,7 @@ const ProductCat = () => {
                     ))}
                 </div>
                 <Pagination totalPages={totalPages} handleClick={handleClick} currentPage={currentPage} />
-                {subCat == "pellet" && <TextPellet />}
-                {subCat == "leña" && <TextLena />}
-                {(cat == "calefactores" && subCat == "") && <TextCalefactores />}
+                <TextCat cat={cat} subCat={subCat} />
             </section>
             <Destacados />
         </main>

@@ -1,6 +1,7 @@
 import Pellet from "../assets/imagenes/pellet.webp";
 import Lena from "../assets/imagenes/leña.webp";
 import Ambos from "../assets/imagenes/pellet-leña.webp";
+import { useEffect, useState } from "react";
 
 export const TextHome = () => {
     return (
@@ -19,55 +20,44 @@ export const TextHome = () => {
     );
 }
 
-export const TextPellet = () => {
-    return (
-        <article className="flex flex-col max-xl:items-center xl:flex-row gap-4 pt-4">
-            <img className="w-full sm:w-[50%] lg:w-96 rounded-lg" src={Pellet} alt="calefactor a pellet" />
-            <div>
-                <h1 className="font-semibold text-xl mb-2 md:mx-[15%] xl:mx-0 text-blue-800">Calefactores a Pellet</h1>
-                <p className="max-sm:text-[0.95rem] md:mx-[15%] xl:mx-0">
-                    Los calefactores a pellets destacan por su alta eficiencia y bajo nivel de emisiones.
-                    Los pellets, hechos de residuos de madera comprimida, son una fuente de energía renovable y sostenible.
-                </p>
-                <p className="max-sm:text-[0.95rem] md:mx-[15%] xl:mx-0 mt-2">
-                    Los calefactores a pellets modernos pueden alcanzar eficiencias de hasta el 90%, convirtiendo la mayor parte del combustible en calor útil.
-                </p>
-            </div>
-        </article>
-    )
-}
+export const TextCat = ({cat, subCat}) => {
 
-export const TextLena = () => {
-    return (
-        <article className="flex flex-col max-xl:items-center xl:flex-row gap-4 pt-4">
-            <img className="w-full sm:w-[50%] lg:w-96 rounded-lg" src={Lena} alt="calefactor a leña" />
-            <div>
-                <h1 className="font-semibold text-xl mb-2 md:mx-[15%] xl:mx-0 text-blue-800">Calefactores a Leña</h1>
-                <p className="max-sm:text-[0.95rem] md:mx-[15%] xl:mx-0">
-                    Los calefactores a leña de alto rendimiento también son una opción eficiente para la climatización del hogar.
-                    La leña es un recurso natural que,cuando se maneja de manera sostenible, puede ser una fuente de energía renovable.
-                </p>
-                <p className="max-sm:text-[0.95rem] md:mx-[15%] xl:mx-0 mt-2">
-                    Los modernos calefactores a leña están diseñados para maximizar la combustión y minimizar las emisiones, alcanzando eficiencias de hasta el 80%.
-                </p>
-            </div>
-        </article>
-    )
-}
+    const [Photo, setPhoto] = useState(null);
+    const [title, setTitle] = useState("");
+    const [text1, setText1] = useState("");
+    const [text2, setText2] = useState("");
 
-export const TextCalefactores = () => {
+    useEffect(() => {
+        if (cat == "calefactores" && subCat == "") {
+            setPhoto(Ambos);
+            setTitle("Beneficios del uso de calefactores")
+            setText1("Optar por calefactores de alto rendimiento a pellets y leña no solo mejora la eficiencia energética del hogar, sino que también contribuye a un futuro más sostenible.")
+            setText2("Ambos tipos de calefactores ofrecen beneficios significativos en términos de eficiencia, costo y reducción de emisiones, haciendo de ellos una excelente opción para quienes buscan una climatización efectiva y ecológica.")
+        } else if (subCat == "pellet") {
+            setPhoto(Pellet);
+            setTitle("Calefactores a Pellet")
+            setText1("Los calefactores a pellets destacan por su alta eficiencia y bajo nivel de emisiones. Los pellets, hechos de residuos de madera comprimida, son una fuente de energía renovable y sostenible.")
+            setText2("Los calefactores a pellets modernos pueden alcanzar eficiencias de hasta el 90%, convirtiendo la mayor parte del combustible en calor útil.")
+        } else if (subCat == "leña") {
+            setPhoto(Lena);
+            setTitle("Calefactores a Leña")
+            setText1("Los calefactores a leña de alto rendimiento también son una opción eficiente para la climatización del hogar. La leña es un recurso natural que,cuando se maneja de manera sostenible, puede ser una fuente de energía renovable.")
+            setText2("Los modernos calefactores a leña están diseñados para maximizar la combustión y minimizar las emisiones, alcanzando eficiencias de hasta el 80%.")
+        }
+    }, [cat, subCat])
+
     return (
-        <article className="flex flex-col max-xl:items-center xl:flex-row gap-4 pt-4">
-            <img className="w-full sm:w-[50%] lg:w-96 rounded-lg" src={Ambos} alt="calefactor a leña y calefactor a pellet" />
-            <div>
-                <h1 className="font-semibold text-xl mb-2 md:mx-[15%] xl:mx-0 text-blue-800">Beneficios del uso de calefactores</h1>
-                <p className="max-sm:text-[0.95rem] md:mx-[15%] xl:mx-0">
-                Optar por calefactores de alto rendimiento a pellets y leña no solo mejora la eficiencia energética del hogar,
-                sino que también contribuye a un futuro más sostenible.
+        <article className="flex flex-col max-sm:items-center sm:flex-row gap-4 pt-4">
+            <div className="flex items-center flex-none">
+                <img className="max-sm:w-full max-2xl:max-w-xs 2xl:w-[500px] h-auto rounded-lg" src={Photo} alt={title} />
+            </div>
+            <div className="flex-1">
+                <h1 className="font-semibold text-xl mb-2 text-blue-800">{title}</h1>
+                <p className="max-sm:text-[0.95rem] max-md:text-sm">
+                    {text1}
                 </p>
-                <p className="max-sm:text-[0.95rem] md:mx-[15%] xl:mx-0 mt-2">
-                Ambos tipos de calefactores ofrecen beneficios significativos en términos de eficiencia, costo y reducción de emisiones, haciendo de ellos una excelente opción
-                para quienes buscan una climatización efectiva y ecológica.
+                <p className="max-sm:text-[0.95rem] max-md:text-sm mt-2">
+                    {text2}
                 </p>
             </div>
         </article>
