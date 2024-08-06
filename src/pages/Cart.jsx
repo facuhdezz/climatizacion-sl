@@ -3,6 +3,7 @@ import Close from "../assets/iconos/close.svg"
 import { useCart } from "../context/CartContext";
 import { useEffect, useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
+import { addDoc, collection, getFirestore, Timestamp } from "firebase/firestore";
 
 const Cart = () => {
 
@@ -60,10 +61,41 @@ const Cart = () => {
     useEffect(() => {
         const newSubTotal = productCart.reduce((acc, product) => acc + Number(product.precio), 0)
         setSubTotal(newSubTotal)
-
-        const ids = productCart.map(product => `ID: ${product.id}, Precio: ${product.precio}, Descripción: ${product.descripcion}`).join("; ")
-        setEmailOrder(textoBase + ids)
+        // const ids = productCart.map(product => product.id)
+        // setIdProducts(ids)
+        const products = productCart.map(product => `ID: ${product.id}, Precio: ${product.precio}, Descripción: ${product.descripcion}`).join("; ")
+        setEmailOrder(textoBase + products)
     }, [productCart])
+
+    // const [idProducts, setIdProducts] = useState([])
+    // const [order, setOrder] = useState({
+    //     products: idProducts,
+    //     nombre: "",
+    //     email: "",
+    //     telefono: "",
+    //     mensaje: ""
+    // })
+
+    // const setOrderToDb = async () => {
+    //     const db = getFirestore();
+    //     const ordersCollection = collection(db, "orders")
+
+    //     try {
+    //         await addDoc(ordersCollection, {...order, createdAt: Timestamp.now()})
+    //         console.log("Orden Generada Correctamente!");
+    //     } catch(error) {
+    //         console.error("Error al generar la orden: ", error);
+    //     }        
+    // }
+
+    // const handleSubmit = async () => {
+    //     try {
+    //         await setOrderToDb();
+    //     } catch(error) {
+    //         console.error("Error al ejecutar las funciones", error);
+            
+    //     }
+    // }
 
     return (
         <main className="col-span-4 max-lg:col-span-5 p-3 pt-8 bg-white m-3 rounded-lg text-center">

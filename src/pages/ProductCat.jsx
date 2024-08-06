@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 import { useProducts } from "../context/ProductsContext";
 import Sort from "../assets/iconos/sort.svg";
 import Pagination from "../components/Pagination";
-import { TextCalefactores, TextCat, TextLena, TextPellet } from "../components/Info";
+import { TextCat } from "../components/Info";
 
 const ProductCat = () => {
 
@@ -102,8 +102,8 @@ const ProductCat = () => {
                 </div>
                 <div className="flex flex-row gap-4 pt-4">
                     <h1>Ordenar por:</h1>
-                    <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><h1 className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("menor") }}>Menor Precio</h1></div>
-                    <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><h1 className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("mayor") }}>Mayor Precio</h1></div>
+                    <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><button className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("menor") }}>Menor Precio</button></div>
+                    <div className="flex flex-row items-center"><img src={Sort} alt="Icono de ordenar elementos" /><button className="hover:cursor-pointer hover:text-gray-600" onClick={() => { setFilter("mayor") }}>Mayor Precio</button></div>
                 </div>
                 <div className="producto pt-4">
                     {currentProducts.map(item => (

@@ -1,5 +1,6 @@
 import Pellet from "../assets/imagenes/pellet.webp";
 import Lena from "../assets/imagenes/leña.webp";
+import Aire from "../assets/imagenes/aire-ac.webp";
 import Ambos from "../assets/imagenes/pellet-leña.webp";
 import { useEffect, useState } from "react";
 
@@ -43,6 +44,11 @@ export const TextCat = ({cat, subCat}) => {
             setTitle("Calefactores a Leña")
             setText1("Los calefactores a leña de alto rendimiento también son una opción eficiente para la climatización del hogar. La leña es un recurso natural que,cuando se maneja de manera sostenible, puede ser una fuente de energía renovable.")
             setText2("Los modernos calefactores a leña están diseñados para maximizar la combustión y minimizar las emisiones, alcanzando eficiencias de hasta el 80%.")
+        } else if (cat == "aires") {
+            setPhoto(Aire);
+            setTitle("Aires Acondicionados");
+            setText1("Climatizar los espacios con aires acondicionados no solo proporciona confort térmico, sino que también ofrece una serie de beneficios que van más allá de la mera regulación de la temperatura.");
+            setText2("La integración de sistemas de aire acondicionado eficientes energéticamente se ha convertido en una prioridad para muchos hogares y empresas, debido a sus múltiples ventajas.");
         }
     }, [cat, subCat])
 
