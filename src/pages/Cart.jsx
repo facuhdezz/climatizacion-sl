@@ -15,9 +15,7 @@ const Cart = () => {
     const templateProductId = import.meta.env.VITE_APP_TEMPLATE_ID_PRODUCT || "";
     const publicId = import.meta.env.VITE_APP_PUBLIC || "";
 
-    const sendEmail = (e) => {
-
-        e.preventDefault();
+    const sendEmail = () => {
 
         emailjs
             .sendForm(serviceId, templateProductId, form.current, {
@@ -59,43 +57,67 @@ const Cart = () => {
     const textoBase = "Orden generada desde el carrito de compras por el/los siguientes productos: "
 
     useEffect(() => {
-        const newSubTotal = productCart.reduce((acc, product) => acc + Number(product.precio), 0)
+        const newSubTotal = productCart.reduce((acc, product) => acc + Number(product.precio) * product.cantidad, 0)
         setSubTotal(newSubTotal)
-        // const ids = productCart.map(product => product.id)
-        // setIdProducts(ids)
+        const ids = productCart.map(product => ({id: product.id, cantidad: product.cantidad}))
+        setIdProducts(ids)
         const products = productCart.map(product => `ID: ${product.id}, Precio: ${product.precio}, Descripción: ${product.descripcion}`).join("; ")
         setEmailOrder(textoBase + products)
     }, [productCart])
 
-    // const [idProducts, setIdProducts] = useState([])
-    // const [order, setOrder] = useState({
-    //     products: idProducts,
-    //     nombre: "",
-    //     email: "",
-    //     telefono: "",
-    //     mensaje: ""
-    // })
+    const [idProducts, setIdProducts] = useState(() => {
+        const storedProductCart = localStorage.getItem('productCart');
+        return storedProductCart ? JSON.parse(storedProductCart).map(product => ({
+            id: product.id,
+            cantidad: product.cantidad
+        })) : [];
+    });
 
-    // const setOrderToDb = async () => {
-    //     const db = getFirestore();
-    //     const ordersCollection = collection(db, "orders")
+    const [order, setOrder] = useState({
+        products: idProducts,
+        from_name: "",
+        email_id: "",
+        phone_id: "",
+        message: ""
+    });
 
-    //     try {
-    //         await addDoc(ordersCollection, {...order, createdAt: Timestamp.now()})
-    //         console.log("Orden Generada Correctamente!");
-    //     } catch(error) {
-    //         console.error("Error al generar la orden: ", error);
-    //     }        
-    // }
+    useEffect(() => {
+        setOrder(prevOrder => ({
+            ...prevOrder,
+            products: idProducts
+        }));
+    }, [idProducts]);
 
-    // const handleSubmit = async () => {
-    //     try {
-    //         await setOrderToDb();
-    //     } catch(error) {
-    //         console.error("Error al ejecutar las funciones", error);
-            
-    //     }
-    // }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setOrder(prevOrder => ({
+            ...prevOrder,
+            [name]: value
+        }));
+        
+    };
+
+    const setOrderToDb = async () => {
+        const db = getFirestore();
+        const ordersCollection = collection(db, "orders")
+        try {
+            console.log("Sending order:", order);
+            await addDoc(ordersCollection, {...order, createdAt: Timestamp.now()})
+            console.log("Orden Generada Correctamente!");
+        } catch(error) {
+            console.error("Error al generar la orden: ", error);
+        }        
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            await setOrderToDb();    
+            sendEmail();        
+        } catch(error) {
+            console.error("Error al ejecutar las funciones", error);            
+        }
+    }
 
     return (
         <main className="col-span-4 max-lg:col-span-5 p-3 pt-8 bg-white m-3 rounded-lg text-center">
@@ -154,17 +176,17 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>}
-                        <form ref={form} className="flex flex-col gap-4 items-center w-full" onSubmit={sendEmail}>
-                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="text" name="from_name" placeholder="Nombre *" required></input>
-                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="email" name="email_id" placeholder="E-mail *" required></input>
-                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" placeholder="Teléfono"></input>
-                            <textarea className="bg-gray-100 w-full h-24 lg:h-16 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" placeholder="Mensaje *" required></textarea>
+                        <form ref={form} className="flex flex-col gap-4 items-center w-full" onSubmit={handleSubmit}>
+                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="text" name="from_name" value={order.from_name} onChange={handleChange} placeholder="Nombre *" required></input>
+                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="email" name="email_id" value={order.email_id} onChange={handleChange} placeholder="E-mail *" required></input>
+                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" value={order.phone_id} onChange={handleChange} placeholder="Teléfono"></input>
+                            <textarea className="bg-gray-100 w-full h-24 lg:h-16 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" value={order.message} onChange={handleChange} placeholder="Mensaje"></textarea>
                             <input type="hidden" name="product" value={emailOrder} />
                             <div className="bg-white w-full text-left p-2">
                                 <p><span className="font-bold">Estimado cliente</span>, para poder coordinar la compra, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad.</p>
                                 {/* <p><span className="font-bold">Estimado cliente</span>, si desea coordinar la compra directamente con nosotros, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad. De lo contrario puede continuar con la compra en línea seleccionando la opción de <span className="font-bold">finalizar compra.</span></p> */}
                             </div>
-                            <button className="bg-gray-100 hover:bg-gray-200 text-black border rounded p-1 w-full">Generar orden</button>
+                            <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-black border rounded p-1 w-full">Generar orden</button>
                             {/* <button className="bg-green-700 hover:bg-green-900 text-white border rounded p-1 w-full">Finalizar compra</button> */}
                         </form>
                     </div>
