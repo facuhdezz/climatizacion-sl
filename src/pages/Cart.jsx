@@ -139,8 +139,8 @@ const Cart = () => {
                         <tbody className="divide-y text-xs sm:text-base">
                             {productCart.map(product => (
                                 <tr key={product.id} className="bg-white text-center">
-                                    <th><Link to={"/item/" + product.id}><img src={product.url} alt={product.nombre} className="w-20" /></Link></th>
-                                    <th><Link to={"/item/" + product.id}>{product.nombre}</Link></th>
+                                    <th><Link to={"/product/" + product.id}><img src={product.url} alt={product.nombre} className="w-20" /></Link></th>
+                                    <th><Link to={"/product/" + product.id}>{product.nombre}</Link></th>
                                     <th>{product.moneda} {product.precio}</th>
                                     <th>{product.cantidad}</th>
                                     <th>{product.moneda} {product.cantidad * product.precio}</th>
