@@ -4,6 +4,7 @@ import { useCart } from "../context/CartContext";
 import { useEffect, useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { addDoc, collection, getFirestore, Timestamp } from "firebase/firestore";
+import Mercadopago from "../components/Mercadopago";
 
 const Cart = () => {
 
@@ -189,6 +190,7 @@ const Cart = () => {
                             <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-black border rounded p-1 w-full">Generar orden</button>
                             {/* <button className="bg-green-700 hover:bg-green-900 text-white border rounded p-1 w-full">Finalizar compra</button> */}
                         </form>
+                        <Mercadopago />
                     </div>
                 </article>
             </section>
