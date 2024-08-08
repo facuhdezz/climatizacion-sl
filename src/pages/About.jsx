@@ -42,7 +42,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="px-4 xl:px-24 2xl:px-36 mt-4">
-                    <h1 className="text-3xl font-semibold mb-2">Nuestros misión</h1>
+                    <h1 className="text-3xl font-semibold mb-2">Nuestra misión</h1>
                     <p className="indent-4">
                         A lo largo de nuestro recorrido profesional hemos construido una sólida reputación basada en la confiabilidad y
                         la satisfacción del cliente. Tenemos como misión proporcionar soluciones que mejoren su calidad de vida.
