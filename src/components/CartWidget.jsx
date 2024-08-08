@@ -22,9 +22,9 @@ const CartWidget = () => {
                     <div className="flex relative gap-5 h-28 p-4 bg-white border-b">
                         <img src={Close} className="absolute top-2 right-2 hover:cursor-pointer hover:scale-105" onClick={() => {handleRemove(product.id)}} />
                         <img src={product.url} alt={product.nombre} />
-                        <div>
+                        <div className="flex flex-col overflow-hidden">
                             <p>{product.moneda} <span className="font-semibold">{product.precio}</span></p>
-                            <Link to={"/product/" + product.id} className="hover:cursor-pointer" ><p className="hover:text-gray-600">{product.descripcion}</p></Link>
+                            <Link to={"/product/" + product.id} className="hover:cursor-pointer" ><p className="hover:text-gray-600 text-ellipsis">{product.descripcion}</p></Link>
                         </div>
                     </div>
                 )) : <p className="bg-white text-center p-4 border-b">No hay productos en el carrito</p>}
