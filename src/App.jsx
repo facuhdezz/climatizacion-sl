@@ -9,6 +9,7 @@ import { HelmetProvider } from "react-helmet-async";
 import About from "./pages/About";
 import CartWidget from "./components/CartWidget";
 import Cart from "./pages/Cart";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           {location.pathname !== '/carrito' && <CartWidget />}
           <Footer />
         </div>
+        <Analytics />
       </HelmetProvider>
   )
 }
