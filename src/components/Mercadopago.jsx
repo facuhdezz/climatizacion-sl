@@ -16,11 +16,18 @@ const Mercadopago = () => {
 
     const createPreference = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/create_preference", {
-                title: "Calefactor algo",
-                quantity: 1,
-                price: 500
-            });
+            const response = await axios.post("http://localhost:3000/create_preference", [
+                {
+                    title: "Calefactor algo",
+                    quantity: 1,
+                    price: 500
+                },
+                {
+                    title: "Calefactor otro",
+                    quantity: 1,
+                    price: 300
+                }
+        ]);
 
             const {id} = response.data;
             return id;
