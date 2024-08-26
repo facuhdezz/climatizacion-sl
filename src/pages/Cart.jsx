@@ -183,14 +183,19 @@ const Cart = () => {
                             <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" value={order.phone_id} onChange={handleChange} placeholder="Teléfono"></input>
                             <textarea className="bg-gray-100 w-full h-24 lg:h-16 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" value={order.message} onChange={handleChange} placeholder="Mensaje"></textarea>
                             <input type="hidden" name="product" value={emailOrder} />
-                            <div className="bg-white w-full text-left p-2">
-                                <p><span className="font-bold">Estimado cliente</span>, para poder coordinar la compra, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad.</p>
+                            <div className="bg-white w-full text-left p-2 border rounded">
+                                <h1 className="text-center font-semibold text-xl mb-2">Coordinar compra personalmente</h1>
+                                <p className="text-center mb-2">Para poder coordinar la compra <span className="font-bold">directamente con nosotros</span>, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted en el menor tiempo posible.</p>
                                 {/* <p><span className="font-bold">Estimado cliente</span>, si desea coordinar la compra directamente con nosotros, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad. De lo contrario puede continuar con la compra en línea seleccionando la opción de <span className="font-bold">finalizar compra.</span></p> */}
+                                <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-black border rounded p-1 w-full">Generar orden</button>
                             </div>
-                            <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-black border rounded p-1 w-full">Generar orden</button>
                             {/* <button className="bg-green-700 hover:bg-green-900 text-white border rounded p-1 w-full">Finalizar compra</button> */}
                         </form>
-                        <Mercadopago />
+                            <div className="bg-white w-full text-left p-2 border rounded">
+                                <h1 className="text-center font-semibold text-xl mb-2">Pagar online con mercadopago</h1>
+                                <p className="text-center mb-2">Compre online de forma segura a través de MercadoPago haciendo click en <span className="font-bold">comprar online</span>.</p>                                
+                                <Mercadopago products={productCart}/>
+                            </div>
                     </div>
                 </article>
             </section>
