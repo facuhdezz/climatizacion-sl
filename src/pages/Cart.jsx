@@ -54,6 +54,41 @@ const Cart = () => {
         deleteProduct(id)
     }
 
+    const dptos = ["ARTIGAS", "CANELONES", "CERRO LARGO", "COLONIA", "DURAZNO", "FLORES", "FLORIDA", "LAVALLEJA", "MALDONADO", "MONTEVIDEO", "PAYSANDU", "RIO NEGRO", "RIVERA", "ROCHA", "SALTO", "SAN JOSE", "SORIANO", "TACUAREMBO", "TREINTA Y TRES"]
+
+    const [selectDpto, setSelectDpto] = useState("");
+    const [selectLoc, setSelectLoc] = useState("");
+
+    const [localidades, setLocalidades] = useState("");
+
+    const handleChangeDpto = (e) => {
+        setSelectDpto(e.target.value)
+    }
+
+    const handleChangeLoc = (e) => {
+        setSelectLoc(e.target.value)
+    }
+
+    useEffect(() => {
+        const fetchLoc = async (formatedDpto) => {
+            try {
+                const response = await fetch(`https://direcciones.ide.uy/api/v0/geocode/localidades?departamento=${formatedDpto}`)
+                const data = await response.json()
+                console.log(typeof(data));
+                console.log(data);
+                setLocalidades(data);               
+            } catch(error) {
+                console.log(error);                
+            }
+        }
+
+        if(selectDpto) {
+            const formatedDpto = selectDpto.toLocaleLowerCase().replace(" ", "%20")
+            fetchLoc(formatedDpto);
+        }
+
+    }, [selectDpto])
+
     const textoBase = "Orden generada desde el carrito de compras por el/los siguientes productos: "
 
     useEffect(() => {
@@ -178,9 +213,24 @@ const Cart = () => {
                         </div>}
                         <form ref={form} className="flex flex-col gap-4 items-center w-full" onSubmit={handleSubmit}>
                             <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="text" name="from_name" value={order.from_name} onChange={handleChange} placeholder="Nombre *" required></input>
+                            <div className="flex w-full gap-2">
+                                <select required onChange={handleChangeDpto} id="dpto" name="dpto" className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white">
+                                    <option value="">
+                                        Seleccione un departamento *
+                                    </option>
+                                    {dptos.map(dp => (<option>{dp}</option>))}
+                                </select>
+                                <select required onChange={handleChangeLoc} id="loc" name="loc" className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white">
+                                    <option value="">
+                                        Seleccione una localidad *
+                                    </option>
+                                    {localidades && localidades.map(loc => (<option>{loc.nombre}</option>))}
+                                </select>
+                            </div>
+                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" placeholder="Dirección *" required></input>
                             <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="email" name="email_id" value={order.email_id} onChange={handleChange} placeholder="E-mail *" required></input>
-                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" value={order.phone_id} onChange={handleChange} placeholder="Teléfono"></input>
-                            <textarea className="bg-gray-100 w-full h-24 lg:h-16 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" value={order.message} onChange={handleChange} placeholder="Mensaje"></textarea>
+                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" value={order.phone_id} onChange={handleChange} placeholder="Teléfono" required></input>
+                            <textarea className="bg-gray-100 w-full h-24 lg:h-16 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" value={order.message} onChange={handleChange} placeholder="Mensaje (opcional)"></textarea>
                             <input type="hidden" name="product" value={emailOrder} />
                             <div className="bg-white w-full text-left p-2">
                                 <p><span className="font-bold">Estimado cliente</span>, para poder coordinar la compra, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad.</p>
