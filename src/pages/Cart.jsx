@@ -245,7 +245,7 @@ const Cart = () => {
                                 </div>
                                 <div className="rounded border p-2">
                                     <p>Pagá de forma presencial con tarjeta o efectivo.</p>
-                                    <div className="flex flex-row gap-2 mt-4">
+                                    <div className="flex flex-col sm:flex-row gap-2 mt-4">
                                         <div className="basis-1/3">
                                             <img className="rounded-lg shadow-lg" src={Medio1} alt="Medios de pago disponibles"/>
                                         </div>
