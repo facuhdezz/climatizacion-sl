@@ -4,6 +4,9 @@ import { useCart } from "../context/CartContext";
 import { useEffect, useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { addDoc, collection, getFirestore, Timestamp } from "firebase/firestore";
+import Medio1 from '../assets/imagenes/pagos/1.jpg';
+import Medio2 from '../assets/imagenes/pagos/2.jpg';
+import Medio3 from '../assets/imagenes/pagos/3.jpg';
 
 const Cart = () => {
 
@@ -174,7 +177,7 @@ const Cart = () => {
                         <tbody className="divide-y text-xs sm:text-base">
                             {productCart.map(product => (
                                 <tr key={product.id} className="bg-white text-center">
-                                    <th><Link to={"/product/" + product.id}><img src={product.url} alt={product.nombre} className="w-20" /></Link></th>
+                                    <th><Link to={"/product/" + product.id}><img src={product.url} alt={product.nombre} className="w-20 mx-auto" /></Link></th>
                                     <th><Link to={"/product/" + product.id}>{product.nombre}</Link></th>
                                     <th>{product.moneda} {product.precio}</th>
                                     <th>{product.cantidad}</th>
@@ -194,6 +197,9 @@ const Cart = () => {
                     <div className="bg-white w-full text-left p-4 font-semibold">
                         <h1>Total: USD {subTotal}</h1>
                     </div>
+                    <div className="bg-white w-full text-left py-4 px-20">
+                        <h1>En caso de requerir envío los costos <span className="font-semibold">no están incluídos</span> en el total del pedido, nos pondremos en contacto con usted para coordinar el mismo.</h1>
+                    </div>
                     <div className="bg-white w-full text-left p-4 flex flex-col gap-2">
                         {emailSend && <div className="max-lg:w-full fixed top-24">
                             <div className="p-10 lg:p-20 bg-[rgba(255, 255, 255, 1)] backdrop-blur-sm rounded-xl mx-auto">
@@ -212,8 +218,9 @@ const Cart = () => {
                             </div>
                         </div>}
                         <form ref={form} className="flex flex-col gap-4 items-center w-full" onSubmit={handleSubmit}>
+                            <h1 className="text-2xl">Detalles de Facturación</h1>
                             <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="text" name="from_name" value={order.from_name} onChange={handleChange} placeholder="Nombre *" required></input>
-                            <div className="flex w-full gap-2">
+                            {/* <div className="flex w-full gap-2">
                                 <select required onChange={handleChangeDpto} id="dpto" name="dpto" className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white">
                                     <option value="">
                                         Seleccione un departamento *
@@ -226,17 +233,36 @@ const Cart = () => {
                                     </option>
                                     {localidades && localidades.map(loc => (<option>{loc.nombre}</option>))}
                                 </select>
-                            </div>
-                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" placeholder="Dirección *" required></input>
+                            </div> */}
+                            {/* <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" placeholder="Dirección *" required></input> */}
                             <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="email" name="email_id" value={order.email_id} onChange={handleChange} placeholder="E-mail *" required></input>
-                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" value={order.phone_id} onChange={handleChange} placeholder="Teléfono" required></input>
+                            <input className="bg-gray-100 w-full h-8 p-2 border border-gray-300 rounded outline-none focus:bg-white" type="tel" name="phone_id" value={order.phone_id} onChange={handleChange} placeholder="Teléfono *" required></input>
                             <textarea className="bg-gray-100 w-full h-24 lg:h-16 p-2 border border-gray-300 rounded outline-none focus:bg-white" name="message" value={order.message} onChange={handleChange} placeholder="Mensaje (opcional)"></textarea>
                             <input type="hidden" name="product" value={emailOrder} />
+                            <div className="w-full text-center">
+                                <div className="text-2xl font-semibold rounded p-4">
+                                    <h1>Medios de pago disponibles:</h1>
+                                </div>
+                                <div className="rounded border p-2">
+                                    <p>Pagá de forma presencial con tarjeta o efectivo.</p>
+                                    <div className="flex flex-row gap-2 mt-4">
+                                        <div className="basis-1/3">
+                                            <img className="rounded-lg shadow-lg" src={Medio1} alt="Medios de pago disponibles"/>
+                                        </div>
+                                        <div className="basis-1/3">
+                                            <img className="rounded-lg shadow-lg" src={Medio2} alt="Medios de pago disponibles"/>
+                                        </div>
+                                        <div className="basis-1/3">
+                                            <img className="rounded-lg shadow-lg" src={Medio3} alt="Medios de pago disponibles"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="bg-white w-full text-left p-2">
-                                <p><span className="font-bold">Estimado cliente</span>, para poder coordinar la compra, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad.</p>
+                                <p><span className="font-bold">Estimado cliente</span>, para poder coordinar la compra, por favor seleccione <span className="font-bold">realizar pedido</span> y nos comunicaremos con usted a la brevedad.</p>
                                 {/* <p><span className="font-bold">Estimado cliente</span>, si desea coordinar la compra directamente con nosotros, por favor seleccione <span className="font-bold">generar orden</span> y nos comunicaremos con usted a la brevedad. De lo contrario puede continuar con la compra en línea seleccionando la opción de <span className="font-bold">finalizar compra.</span></p> */}
                             </div>
-                            <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-black border rounded p-1 w-full">Generar orden</button>
+                            <button type="submit" className="bg-blue-700 hover:bg-blue-800 text-white text-xl font-semibold rounded-md p-1 w-full">Realizar Pedido</button>
                             {/* <button className="bg-green-700 hover:bg-green-900 text-white border rounded p-1 w-full">Finalizar compra</button> */}
                         </form>
                     </div>
