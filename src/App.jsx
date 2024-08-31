@@ -10,6 +10,7 @@ import About from "./pages/About";
 import CartWidget from "./components/CartWidget";
 import Cart from "./pages/Cart";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Footer />
         </div>
         <Analytics />
+        <SpeedInsights />
       </HelmetProvider>
   )
 }
