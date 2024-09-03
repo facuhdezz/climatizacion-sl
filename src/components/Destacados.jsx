@@ -41,7 +41,7 @@ const Destacados = () => {
             </div>            
             <div className={`flex gap-2 overflow-x-scroll pb-3 h-[333px] w-full ${loading && "border rounded bg-gray-50"}`}>                
                 {loading ? <Spinner /> : productosFiltrados.map(item => (
-                <DestCard key={item.id} clase={"w-36"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
+                <DestCard key={item.id} conditional={true} clase={"w-36"} url={item.url} id={item.id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} moneda={item.moneda} />
             ))}
             </div>
         </section>
