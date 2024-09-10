@@ -17,12 +17,12 @@ const ProductDetail = () => {
 
     const { id } = useParams()
     const {productList} = useProducts()
-    const [productUnique, setProductUnique] = useState(null)
+    const [productUnique, setProductUnique] = useState(null)    
 
     useEffect(() => {
         const filteredProduct = productList.find(productos => productos.id == id)
         setProductUnique(filteredProduct)
-    }, [id])
+    }, [id, productList])
 
     return (
         <main className="col-span-3 max-lg:col-span-5 px-3 divide-y divide-gray-300 pb-8 bg-white m-3 rounded-lg">
