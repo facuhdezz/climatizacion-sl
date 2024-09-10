@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from 'firebase/analytics'
 import AppProvider from './context/AppProvider.jsx'
 
 const firebaseConfig = {
@@ -17,6 +18,7 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
+const analytics = getAnalytics(initializeApp(firebaseConfig))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
