@@ -17,8 +17,8 @@ const firebaseConfig = {
     measurementId: import.meta.env.VITE_APP_MEASUREMENT_ID
 };
 
-initializeApp(firebaseConfig);
-const analytics = getAnalytics(initializeApp(firebaseConfig))
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
