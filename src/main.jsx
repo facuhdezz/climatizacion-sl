@@ -18,7 +18,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-getAnalytics(app);
+const analitycs = getAnalytics(app);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
