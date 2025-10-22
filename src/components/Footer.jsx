@@ -86,7 +86,7 @@ const Footer = () => {
                     <div className="flex flex-col items-center text-center gap-2">
                         <h1 className="text-2xl font-semibold">Contacto</h1>
                         <a href="https://wa.me/59898437511" target="_blank" rel="noopener noreferrer"><p className="hover:text-gray-400">Teléfono: <span className="font-semibold">098 437 511</span></p></a>
-                        <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank" rel="noopener noreferrer"><p className="hover:text-gray-400">Tajes esq. Nardone, Santa Lucía, Canelones</p></a>
+                        <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank" rel="noopener noreferrer"><p className="hover:text-gray-400">Amsterdam 194 esq. Sarandí, Santa Lucía, Canelones</p></a>
                         <div className='flex items-center gap-2'>
                             <a href="https://wa.me/59898437511" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Wpp} alt='Ícono de WhatsApp' /></a>
                             <a href="https://www.instagram.com/climatizacion_santa_lucia/" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Ig} alt='Ícono de Instagram' /></a>
