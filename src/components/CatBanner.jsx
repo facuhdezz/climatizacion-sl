@@ -1,5 +1,5 @@
 import Calefactor from '../assets/imagenes/calefactor.webp';
-import Aire from '../assets/imagenes/aire-2.webp';
+import Aire from '../assets/imagenes/aire-2nuevo.webp';
 import { Link } from 'react-router-dom';
 
 const CatBanner = () => {
