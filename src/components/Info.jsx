@@ -1,7 +1,8 @@
 import Pellet from "../assets/imagenes/pellet.webp";
 import Lena from "../assets/imagenes/leña.webp";
-import Aire from "../assets/imagenes/aire-ac.webp";
+import Aire from "../assets/imagenes/aire-2nuevo.webp";
 import Ambos from "../assets/imagenes/pellet-leña.webp";
+import Moderna from "../assets/imagenes/moderna-mueble.webp";
 import { useEffect, useState } from "react";
 
 export const TextHome = () => {
@@ -15,7 +16,7 @@ export const TextHome = () => {
                         Los calefactores de alto rendimiento a pellets y leña se han convertido en opciones populares debido a su capacidad para proporcionar un calor constante y eficiente, mientras utilizan recursos renovables.
                     </p>
                 </div>
-                <img className="w-28 h-auto lg:w-36 object-contain" src='https://www.vivionhaus.com/uploads/cp_d96bddfb26821be262a5b65ba6082c8d.png' alt='Imagen ilustrativa de calefactor' />
+                <img className="w-28 h-auto lg:w-36 object-contain" src={Moderna} alt='Imagen ilustrativa de calefactor' />
             </div>
         </section>
     );
