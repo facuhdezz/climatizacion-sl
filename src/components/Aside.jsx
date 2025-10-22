@@ -24,8 +24,8 @@ const Aside = () => {
                 </article>
                 <article className="flex flex-col gap-1 mt-4">
                     <div className="flex items-center px-2 gap-1"><img src={Location} className='h-6' alt='ícono de ubicación' /><h1 className="font-semibold py-1 text-lg 2xl:text-xl">¿Dónde encontrarnos?</h1></div>
-                    <a href="https://maps.app.goo.gl/38BwenRWHDBP9tkz7" target="_blank" rel="noopener noreferrer" className="rounded-xl border-2 border-gray-400 hover:cursor-pointer overflow-hidden"><img src={Map} alt='Mapa señalando la dirección del local: Tajes esquina Nardone, Santa Lucía, Canelones' className="hover:scale-110 duration-200" /></a>
-                    <h1 className='text-sm'>Tajes esq. Nardone, Santa Lucía, Canelones.</h1>
+                    <a href="https://maps.app.goo.gl/1LCB9yRcbjieTN6F6" target="_blank" rel="noopener noreferrer" className="rounded-xl border-2 border-gray-400 hover:cursor-pointer overflow-hidden"><img src={Map} alt='Mapa señalando la dirección del local: Tajes esquina Nardone, Santa Lucía, Canelones' className="hover:scale-110 duration-200" /></a>
+                    <h1 className='text-sm'>Amsterdam 194 esq. Sarandí, Santa Lucía, Canelones.</h1>
                 </article>
             </div>
         </aside>
