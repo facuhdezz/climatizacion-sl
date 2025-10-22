@@ -93,7 +93,7 @@ const Footer = () => {
                             <a href="https://www.facebook.com/profile.php?id=61560347577671" target="_blank" rel="noopener noreferrer"><img className='h-6 hover:opacity-60 hover:cursor-pointer duration-200' src={Fb} alt='Ícono de Facebook' /></a>
                         </div>
                         <div className="text-xs text-center text-gray-300">
-                            <p>© 2024 Climatización Santa Lucía</p>
+                            <p>© 2025 Climatización Santa Lucía</p>
                             <a href="https://www.instagram.com/border.visual/" target="_blank" rel="noopener noreferrer"><p className="hover:text-white duration-200">Diseño web por BORDER</p></a>
                         </div>
                     </div>
