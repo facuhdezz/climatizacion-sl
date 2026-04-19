@@ -14,7 +14,7 @@ export const ProductsProvider = ({children}) => {
 
     useEffect(() => {
         const db = getFirestore();
-        const q = query(collection(db, "products"), where("precio", ">", "0"))
+        const q = query(collection(db, "products"))
         getDocs(q).then(result => {
             setProductList(result.docs.map(product => ({id: product.id, ...product.data()})));
             setLoading(false);
